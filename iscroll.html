@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="author" content="lonq">
+        <meta name="copyright" content=" ">
+        <title>卡片</title>
+        <link href="css/global.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="js/dialog2-master/dist/css/dialog.css" rel="stylesheet">
+        <link href="js/Swiper-3.3.1/dist/css/swiper.min.css" rel="stylesheet">
+        <link href="css/iconfont/iconfont.css" rel="stylesheet">
+        <style type="text/css">
+            body {
+                background-color: #f9f9f9;
+            }
+            .tab {
+                display: flex;
+                list-style: none;
+                position: fixed;
+                top: 0;
+                z-index: 10;
+                margin: 0;
+                padding: 0;
+                line-height: 44px;
+                width: 100%;
+                border-bottom: 1px solid #dcdcdc;
+            }
+            .tab li {
+                flex: 1;
+                min-width: 0;
+                color: #666;
+                text-align: center;
+                background-color: #fff;
+            }
+            .tab li.active {
+                margin-bottom: -1px;
+                border-bottom: 2px solid #1edbb5;
+            }
+            .tab a {
+                color: #666;
+            }
+            .tab li.active a {
+                color: #1edbb5;
+            }
+            .pull-down,
+            .pull-up {
+                padding: 10px;
+                font-size: 14px;
+                text-align: center;
+                color: #999;
+            }
+            .wrapper {
+                position: absolute;
+                z-index: 1;
+                top: 46px;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                overflow: hidden;
+            }
+            .scroller {
+                position: absolute;
+                z-index: 1;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                width: 100%;
+                -webkit-transform: translateZ(0);
+                -moz-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                -o-transform: translateZ(0);
+                transform: translateZ(0);
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                -webkit-text-size-adjust: none;
+                -moz-text-size-adjust: none;
+                -ms-text-size-adjust: none;
+                -o-text-size-adjust: none;
+                text-size-adjust: none;
+            }
+            .scroller .list {
+                display: none;
+            }
+            .scroller .list.active {
+                display: block;
+            }
+            .list + .list {
+                margin-top: 0;
+            }
+            .list .item:first-child {
+                margin-top: 0;
+            }
+            .list .item:active {
+                background-color: #ececec;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="tab">
+            <li class="active"><a href="javascript:;">菜单一</a></li>
+            <li><a href="javascript:;">菜单二</a></li>
+            <li><a href="javascript:;">菜单三</a></li>
+        </ul>
+        <div id="wrapper" class="wrapper">
+            <div id="scroller" class="scroller">
+                <div class="scroller-slide">
+                    <div id="pullDown" class="pull-down" style="display: none;">下拉更新</div>
+                    <section class="list active">
+                        <!-- <a class="item vertical" href="http://www.baidu.com">
+                            <div class="content">
+                                <div class="thumbnail thumbnail-xs relative">
+                                    <img src="uploadfiles/pic-03.jpg">
+                                </div>
+                                <div class="text locate">
+                                    <h4 class="title text-ellipsis-2">微信左右脑测试实为窃取信息 目前该程序已被停用</h4>
+                                    <p class="bottom-row">2016-07-26 14:24:42</p>
+                                </div>
+                            </div>
+                        </a> -->
+                    </section>
+                    <section class="list">
+                        <!-- <a class="item vertical" href="http://www.baidu.com">
+                            <div class="content">
+                                <div class="thumbnail thumbnail-xs relative">
+                                    <img src="uploadfiles/pic-03.jpg">
+                                </div>
+                                <div class="text locate">
+                                    <h4 class="title text-ellipsis-2">微信左右脑测试实为窃取信息 目前该程序已被停用</h4>
+                                    <p class="bottom-row">2016-07-26 14:24:42</p>
+                                </div>
+                            </div>
+                        </a> -->
+                    </section>
+                    <section class="list">
+                        <!-- <a class="item vertical" href="http://www.baidu.com">
+                            <div class="content">
+                                <div class="thumbnail thumbnail-xs relative">
+                                    <img src="uploadfiles/pic-03.jpg">
+                                </div>
+                                <div class="text locate">
+                                    <h4 class="title text-ellipsis-2">微信左右脑测试实为窃取信息 目前该程序已被停用</h4>
+                                    <p class="bottom-row">2016-07-26 14:24:42</p>
+                                </div>
+                            </div>
+                        </a> -->
+                    </section>
+                    <div id="pullUp" class="pull-up">上拉加载更多</div>
+                </div>
+            </div>
+        </div>
+        <script src="js/zepto.min.js"></script>
+        <script src="js/iscroll-master/build/iscroll-probe.js"></script>
+        <script src="js/dialog2-master/dist/js/dialog.min.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[
+            $(function(){
+                var myScroll;
+                var pullDownFlag,pullUpFlag;
+                var pullDown = $('.pull-down');
+                var pullUp = $('.pull-up');
+                var curIndex = $('.scroller-slide').find('.active').index('section');
+                //加载数据
+                loaded();
+                $('.tab li').on('click',function(){
+                    var $this = $(this);
+                    curIndex = $this.index();
+                    $this.addClass('active').siblings('li').removeClass('active');
+                    $('.scroller-slide section').eq(curIndex).addClass('active').siblings('section').removeClass('active');
+                    myScroll.scrollTo(0, 0);
+                    myScroll.refresh();
+                });
+                //判断滑动位置
+                function positionJudge(){
+                    var scrollY = this.y;
+                    if(scrollY<50 && scrollY>0){ //判断下拉
+                        pullDown.show().html('放开刷新页面');
+                        pullDownFlag = 1;
+                    }else if(scrollY<(this.maxScrollY+50)){ //判断上拉
+                        pullUp.html('放开执行加载');
+                        pullUpFlag = 1;
+                    }
+                }
+                //设置执行条件及状态
+                function action(){
+                    if(pullDownFlag==1){
+                        pullDownAction();
+                        pullDown.html('<i class="iconfont-loading animation-spinner"></i> 加载中…').show();
+                        pullDownFlag = 0;
+                    }else if(pullUpFlag==1){
+                        pullUpAction();
+                        pullUp.html('<i class="iconfont-loading animation-spinner"></i> 加载中…');
+                        pullUpFlag = 0;
+                    }
+                }
+                //执行动作
+                function loaded(){
+                    pullDownFlag = 0;
+                    pullUpFlag = 0;
+                    myScroll = new IScroll('#wrapper',{
+                        probeType: 3,
+                        momentum: true,//关闭惯性滑动
+                        mouseWheel: true,//鼠标滑轮开启
+                        scrollbars: true,//滚动条可见
+                        fadeScrollbars: true,//滚动条渐隐
+                        interactiveScrollbars: true,//滚动条可拖动
+                        shrinkScrollbars: 'scale', // 当滚动边界之外的滚动条是由少量的收缩
+                        useTransform: true,//CSS转化
+                        useTransition: true,//CSS过渡
+                        bounce: true,//反弹
+                        freeScroll: true,//只能在一个方向上滑动
+                        startX: 0,
+                        startY: 0,
+                        //click: true,//打开click事件
+                        //taps:true,//打开tap事件
+                        preventDefault: false,//执行默认动作
+                        //snap: 'li',//以 li 为单位
+                    });
+                    myScroll.on('scroll', positionJudge);
+                    myScroll.on('scrollEnd', action);
+                }
+                //下拉刷新
+                function pullDownAction(){
+                    setTimeout(function(){
+                        var toastMsg = $(document).dialog({
+                            type : 'toast',
+                            infoIcon: 'js/dialog2-master/dist/images/icon/success.png',
+                            infoText: '更新完成',
+                            autoClose: 1500,
+                        });
+                        pullDown.hide();
+                        myScroll.refresh();
+                    },1000);
+                }
+                //上拉加载
+                function pullUpAction(){
+                    setTimeout(function () {
+                        getData(curIndex);
+                        pullUp.html('上拉加载更多');
+                        myScroll.refresh();
+                    },1000);
+                }
+                //数据
+                function getData(target){
+                    isAjax = true;
+                    $.ajax({
+                        type: 'GET',
+                        url: 'data/scroll-list.json',
+                        timeout: 15000,
+                        dataType: 'json',
+                        success: function(reponse){
+                            isAjax = false;
+                            var result = [];
+                            var len = reponse.length;
+                            for (var i = 0; i < len; i++) {
+                                var data = reponse[i];
+                                result += '<div class="item vertical item-thumb item-access">' +
+                                    '<div class="thumb">' +
+                                    '<img src=' + data.thumb + ' alt=' + data.title + '>' +
+                                    '</div>' +
+                                    '<div class="text flex-wrap direction-column space-top">' +
+                                    '<h4 class="title text-ellipsis">' + data.title + '</h4>' +
+                                    '<p class="desc">' + data.desc + '</p>' +
+                                    '<ul class="flex-wrap space-left list-unstyled text-xs text-muted">' +
+                                    '<li><i class="icon iconfont-share"></i> 999+</li>' +
+                                    '<li><i class="icon iconfont-commenting"></i> 999+</li>' +
+                                    '</ul>' +
+                                    '</div>' +
+                                    '</div>';
+                            }
+                            $('section').eq(target).append(result);
+                            myScroll.refresh();
+                        },
+                        error: function(xhr, type){
+                            $('.pull-up').html('加载失败！');
+                        }
+                    });
+                };
+            });
+            document.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+            }, false);
+        //]]>
+        </script>
+    </body>
+</html>

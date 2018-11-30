@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="author" content="lonq">
+		<meta name="copyright" content=" ">
+		<title>可滑动菜单</title>
+		<link href="css/global.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/iconfont/iconfont.css" rel="stylesheet">
+		<link href="js/Swiper-3.3.1/dist/css/swiper.min.css" rel="stylesheet">
+		<style>
+			.swiper-container {
+				width: 100%;
+				height: 100%;
+			}
+			.swiper-slide {
+/*				text-align: center;*/
+/*				font-size: 18px;*/
+				background: #fff;
+				/* Center slide text vertically */
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+/*				-webkit-box-pack: center;*/
+/*				-ms-flex-pack: center;*/
+/*				-webkit-justify-content: center;*/
+/*				justify-content: center;*/
+/*				-webkit-box-align: center;*/
+/*				-ms-flex-align: center;*/
+/*				-webkit-align-items: center;*/
+/*				align-items: center;*/
+				height: auto !important;
+			}
+			.menu {
+				min-width: 100px;
+				width: 70%;
+				max-width: 320px;
+				background-color: #fff;
+				color: #fff;
+				z-index: 9998;
+			}
+			.content {
+				width: 100%;
+			}
+			.menu-button {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 9999;
+				padding: 15px;
+				cursor: pointer;
+				-webkit-transition: .3s;
+				transition: .3s;
+				background-color: #fff;
+				/*margin: 14px;
+				border-radius: 5px;*/
+			}
+			.menu-button .bar:nth-of-type(1) {
+				margin-top: 0px;
+			}
+			.menu-button .bar:nth-of-type(3) {
+				margin-bottom: 0px;
+			}
+			.bar {
+				position: relative;
+				display: block;
+				width: 20px;
+				height: 2px;
+				margin: 5px auto;
+				background-color: #1edbb5;
+				border-radius: 10px;
+				-webkit-transition: .3s;
+				transition: .3s;
+			}
+			.menu-button:hover .bar:nth-of-type(1) {
+				-webkit-transform: translateY(1.5px) rotate(-4.5deg);
+				-ms-transform: translateY(1.5px) rotate(-4.5deg);
+				transform: translateY(1.5px) rotate(-4.5deg);
+			}
+			.menu-button:hover .bar:nth-of-type(2) {
+				opacity: .9;
+			}
+			.menu-button:hover .bar:nth-of-type(3) {
+				-webkit-transform: translateY(-1.5px) rotate(4.5deg);
+				-ms-transform: translateY(-1.5px) rotate(4.5deg);
+				transform: translateY(-1.5px) rotate(4.5deg);
+			}
+			.cross .bar:nth-of-type(1) {
+				-webkit-transform: translateY(8px) rotate(-45deg);
+				-ms-transform: translateY(8px) rotate(-45deg);
+				transform: translateY(8px) rotate(-45deg);
+			}
+			.cross .bar:nth-of-type(2) {
+				opacity: 0;
+			}
+			.cross .bar:nth-of-type(3) {
+				-webkit-transform: translateY(-6px) rotate(45deg);
+				-ms-transform: translateY(-6px) rotate(45deg);
+				transform: translateY(-6px) rotate(45deg);
+			}
+			.cross:hover .bar:nth-of-type(1) {
+				-webkit-transform: translateY(6.5px) rotate(-40.5deg);
+				-ms-transform: translateY(6.5px) rotate(-40.5deg);
+				transform: translateY(6.5px) rotate(-40.5deg);
+			}
+			.cross:hover .bar:nth-of-type(2) {
+				opacity: .1;
+			}
+			.cross:hover .bar:nth-of-type(3) {
+				-webkit-transform: translateY(-7.5px) rotate(40.5deg);
+				-ms-transform: translateY(-7.5px) rotate(40.5deg);
+				transform: translateY(-7.5px) rotate(40.5deg);
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide menu">Menu slide</div>
+				<div class="swiper-slide content">
+					<div class="backdrop"></div>
+					<div class="menu-button">
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+					</div>
+
+					<!-- 正文 start -->
+					<div class="list">
+						<div class="item vertical">
+							<h3>支付方式</h3>
+							<span class="item-note text-dark">总计<strong class="text-danger">20.00</strong>元</span>
+						</div>
+						<div class="item vertical item-toggle">
+							<h3>开关</h3>
+							<label class="toggle">
+								<input type="checkbox" value="on">
+								<div class="track">
+									<div class="handle"></div>
+								</div>
+							</label>
+						</div>
+						<a class="item vertical item-icon-left item-icon-right" href="javascript: void(0);">
+							<i class="icon iconfont-unlock text-danger"></i>
+							<h3>已解锁答案</h3>
+							<i class="icon-accessory"></i>
+						</a>
+						<a class="item vertical item-icon-left item-button-right" href="http://www.163.com/">
+							<i class="icon iconfont-rss text-success"></i>
+							<h3>订阅（带链接）</h3>
+							<button type="button" class="btn btn-success" data-even="http://www.baidu.com/">跳转</button>
+						</a>
+						<a class="item vertical item-icon-left item-button-right" href="http://www.hao123.com/">
+							<i class="icon iconfont-questioncircleline text-primary"></i>
+							<h3>问题（带链接）</h3>
+							<button type="button" id="toPay" class="btn btn-default" onclick="">事件</button>
+						</a>
+						<a class="item vertical item-icon-left item-icon-right" href="javascript: void(0);">
+							<i class="icon iconfont-lamp text-warning"></i>
+							<h3>答案</h3>
+							<span class="item-note margin-right">文字</span>
+							<span class="badge badge-warning">徽章</span>
+							<i class="icon-accessory"></i>
+						</a>
+						<a id="test" class="item vertical item-icon-left item-icon-right" href="javascript: void(0);">
+							<i class="icon iconfont-weixin text-success"></i>
+							<h3>微信支付</h3>
+							<span class="label label-warning-line">标签</span>
+							<span class="label label-warning-line">标签</span>
+						</a>
+						<a class="item vertical item-radio">
+							<label class="radio">
+								<input type="radio" name="r1">
+							</label>
+							<h3>单选一</h3>
+						</a>
+						<a class="item vertical item-radio">
+							<label class="radio">
+								<input type="radio" name="r1">
+							</label>单选二
+						</a>
+						<a class="item vertical item-checkbox item-checkbox-right">
+							<label class="checkbox">
+								<input type="checkbox">
+							</label>多选一
+						</a>
+						<a class="item vertical item-checkbox item-checkbox-right">
+							<label class="checkbox">
+								<input type="radio" name="r11">
+							</label>单选二
+						</a>
+						<a class="item vertical item-checkbox item-checkbox-right">
+							<label class="checkbox">
+								<input type="radio" name="r11">
+							</label>单选二
+						</a>
+						<div class="item vertical">
+							<p>Swiper无需加载任何公共库（如jquery）即可运行，这保证了Swiper的轻量和运行速度。Swiper也可以在加载了公共库的环境下安全的运行，如jQuery, Zepto, jQuery Mobile等。</p>
+						</div>
+						<div class="item vertical">
+							<p>Swiper默认的触摸比例为1:1，你可以通过修改Swiper的设置来改变这个比例。</p>
+						</div>
+						<div class="item vertical">
+							<p>Swiper无需加载任何公共库（如jquery）即可运行，这保证了Swiper的轻量和运行速度。Swiper也可以在加载了公共库的环境下安全的运行，如jQuery, Zepto, jQuery Mobile等。</p>
+						</div>
+						<div class="item vertical">
+							<p>Swiper默认的触摸比例为1:1，你可以通过修改Swiper的设置来改变这个比例。</p>
+						</div>
+						<div class="item vertical">
+							<p>Swiper无需加载任何公共库（如jquery）即可运行，这保证了Swiper的轻量和运行速度。Swiper也可以在加载了公共库的环境下安全的运行，如jQuery, Zepto, jQuery Mobile等。</p>
+						</div>
+						<div class="item vertical">
+							<p>Swiper默认的触摸比例为1:1，你可以通过修改Swiper的设置来改变这个比例。</p>
+						</div>
+					</div>
+					<!-- 正文 end -->
+
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/Swiper-3.3.1/dist/js/swiper.jquery.min.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		$(function() {
+			var toggleMenu = function(){
+				if (swiper.previousIndex == 0)
+					swiper.slidePrev()
+			},
+			menuButton = document.getElementsByClassName('menu-button')[0],
+			slideContent = document.getElementsByClassName('backdrop')[0],
+			swiper = new Swiper('.swiper-container', {
+				slidesPerView: 'auto',
+				initialSlide: 1,
+				resistanceRatio: .00000000000001,
+				onSlideChangeStart: function(slider) {
+					if (slider.activeIndex == 0) {
+						menuButton.classList.add('cross')
+						menuButton.removeEventListener('click', toggleMenu, false)
+					} else
+						menuButton.classList.remove('cross')
+						slideContent.classList.remove('backdrop-toggle')
+				},
+				onSlideChangeEnd: function(slider) {
+					if (slider.activeIndex == 0) {
+						menuButton.removeEventListener('click', toggleMenu, false)
+						slideContent.classList.add('backdrop-toggle')
+					} else
+						menuButton.addEventListener('click', toggleMenu, false)
+				},
+				slideToClickedSlide: true
+			})
+		});
+		//]]>
+		</script>
+	</body>
+</html>

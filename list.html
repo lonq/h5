@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="fullpage">
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="author" content="lonq">
+		<meta name="copyright" content=" ">
+		<title>列表</title>
+		<link href="css/global.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/iconfont/iconfont.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="wrap">
+
+			<!-- 列表 -->
+			<div class="list">
+				<div class="item vertical">
+					<h3>支付方式</h3>
+					<span class="item-note text-dark">总计<strong class="text-danger">20.00</strong>元</span>
+				</div>
+				<div class="item vertical item-toggle">
+					<h3>开关</h3>
+					<label class="toggle">
+						<input type="checkbox" value="on">
+						<div class="track">
+							<div class="handle"></div>
+						</div>
+					</label>
+				</div>
+				<a class="item vertical item-icon-left item-icon-right" href="javascript: void(0);">
+					<i class="icon iconfont-unlock text-danger"></i>
+					<h3>已解锁答案</h3>
+					<i class="icon-accessory"></i>
+				</a>
+				<a class="item vertical item-icon-left item-button-right" href="http://www.163.com/">
+					<i class="icon iconfont-rss text-success"></i>
+					<h3>订阅（带链接）</h3>
+					<button type="button" class="btn btn-success" data-even="http://www.baidu.com/">跳转</button>
+				</a>
+				<a class="item vertical item-icon-left item-button-right" href="http://www.hao123.com/">
+					<i class="icon iconfont-questioncircleline text-primary"></i>
+					<h3>问题（带链接）</h3>
+					<button type="button" id="toPay" class="btn btn-default" onclick="">事件</button>
+				</a>
+				<a class="item vertical item-icon-left item-icon-right" href="javascript: void(0);">
+					<i class="icon iconfont-lamp text-warning"></i>
+					<h3>答案</h3>
+					<span class="item-note margin-right">文字</span>
+					<span class="badge badge-warning">徽章</span>
+					<i class="icon-accessory"></i>
+				</a>
+				<a id="test" class="item vertical item-icon-left item-icon-right" href="javascript: void(0);">
+					<i class="icon iconfont-weixin text-success"></i>
+					<h3>微信支付</h3>
+					<span class="label label-warning-line">标签</span>
+					<span class="label label-warning-line">标签</span>
+				</a>
+				<a class="item vertical item-radio">
+					<label class="radio">
+						<input type="radio" name="r1">
+					</label>
+					<h3>单选一</h3>
+				</a>
+				<a class="item vertical item-radio">
+					<label class="radio">
+						<input type="radio" name="r1">
+					</label>
+					<h3>单选二</h3>
+				</a>
+				<a class="item vertical item-checkbox item-checkbox-right">
+					<label class="checkbox">
+						<input type="checkbox">
+					</label>
+					<h3>多选一</h3>
+				</a>
+				<a class="item vertical item-checkbox item-checkbox-right">
+					<label class="checkbox">
+						<input type="radio" name="r11">
+					</label>
+					<h3>单选二</h3>
+				</a>
+				<a class="item vertical item-checkbox item-checkbox-right">
+					<label class="checkbox">
+						<input type="radio" name="r11">
+					</label>
+					<h3>单选二</h3>
+				</a>
+				<div class="item vertical">
+					<p>卡片(card)默认样式带有box-shadow(阴影)，由于性能的原因，和他类似的元素像 list list-inset 并没有阴影。</p>
+				</div>
+			</div>
+			<br><br><br><br><br>
+
+		</div>
+
+		<!-- 底部 -->
+		<!-- <div id="footer" class="footer no-border">
+			<button type="button" class="btn btn-danger btn-block btn-full">2元拼手气</button>
+		</div> -->
+		<!-- <div id="footer" class="footer">
+			<div class="btn-center"><button type="button" class="btn btn-danger btn-block btn-curve">确定</button></div>
+		</div> -->
+		<!-- <div id="footer" class="footer">
+			<div class="btn-left padding-horizontal">新一期夺宝活动正在进行中！</div>
+			<div class="btn-right"><a class="btn btn-danger btn-full" href="goods-detail.html">立即前往</a></div>
+		</div> -->
+		<!-- <div id="footer" class="footer double-btn">
+			<div class="btn-left"><a class="btn btn-default btn-block btn-full" href="goods-detail.html">立即前往</a></div>
+			<div class="btn-right"><a class="btn btn-danger btn-block btn-full" href="goods-detail.html">立即前往</a></div>
+		</div> -->
+		<!-- <div id="footer" class="footer">
+			<div class="btn-left"><a class="btn btn-clear" href="javascript: history.go(-1);"><i class="icon iconfont-back"></i></a></div>
+			<div class="btn-center"><button type="button" class="btn btn-danger btn-block btn-curve">2元拼手气</button></div>
+			<div class="btn-right"><a id="footerListBtn" class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-navicon"></i></a></div>
+		</div> -->
+		<!-- <ul id="footer" class="footer flex-wrap tabs tabs-vertical average vertical text-center">
+			<li class="col"><a class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-back"></i><span class="tip">菜单一</span></a></li>
+			<li class="col"><a id="msgBtn" class="btn btn-clear active" href="javascript: void(0);"><span class="badge badge-danger">66</span><i class="icon iconfont-edit"></i><span class="tip">菜单二</span></a></li>
+			<li class="col"><a id="praiseBtn" class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-thumbsup"></i><span class="tip">菜单三</span></a></li>
+			<li class="col"><a class="guide btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-share"></i><span class="tip">菜单四</span></a></li>
+		</ul> -->
+		<ul id="footer" class="footer flex-wrap tabs tabs-horizontal average vertical text-center">
+			<li class="col"><a id="footerListBtn" class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-navicon"></i></a></li>
+			<li class="col"><a id="msgBtn" class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-edit"></i></a></li>
+			<li class="col">
+				<a id="praise" class="praise btn btn-clear btn-praise relative" href="javascript: void(0);">
+					<i class="icon iconfont-thumbsup" rel="praise"></i>
+					<span id="praiseCount" class="praise-count">999</span>
+				</a>
+			</li>
+			<li class="col"><a class="guide btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-share"></i></a></li>
+		</ul>
+		<!-- 底部 end -->
+
+		<!-- 底部子菜单 -->
+		<div id="footerListBox" class="footer-list-box">
+			<div class="backdrop"></div>
+			<ul class="actionsheet content">
+				<li><a href="#">底部子菜单</a></li>
+				<li><a href="#">底部子菜单</a></li>
+			</ul>
+		</div>
+		<!-- 底部子菜单 end -->
+		<!-- 留言 -->
+		<div id="msgBox" class="msg-box">
+			<div class="backdrop"></div>
+			<div class="actionsheet content bg-white padding">
+				<form>
+					<div class="msg-content">
+						<div class="tips">写评论（限200字）</div>
+						<textarea id="msgContent" class="" placeholder="评论"></textarea>
+					</div>
+					<div class="msg-footer text-right">
+						<button type="button" class="cancel btn btn-default">关闭</button>
+						<button type="button" class="send btn btn-primary">发送</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- 留言 end -->
+		<!-- 向导 -->
+		<div class="guide-box">
+			<div class="backdrop"></div>
+			<div class="content full-height">
+				<div class="flex-wrap horizontal vertical full-height">
+						<button type="button" class="cancel btn btn-default">关闭向导层</button>
+				</div>
+			</div>
+		</div>
+		<!-- 向导 end -->
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap/js/bootstrap.min.js"></script>
+		<script src="js/common.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		var count = 5;
+		var myCountDown;
+		$(function(){
+			//顶部弹出菜单
+			$('.dropdown > a').dropdown();
+			//顶部弹出子菜单
+			$('.dropdown-menu li').click(function () {
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+			//底部弹出菜单
+			$('#footerListBtn').click(function () {
+				var contentWrap = $('#footerListBox'),
+						selectorName = 'actionsheet-toggle';
+				contentWrap.find('.backdrop').toggleClass('backdrop-toggle');
+				contentWrap.find('.content').hasClass(selectorName) ? contentWrap.find('.content').removeClass('actionsheet-toggle').css('bottom', '0') : contentWrap.find('.content').addClass(selectorName).css('bottom', '54px');
+			});
+			$('#footerListBox .backdrop').click(function () {
+				closePopBox('#footerListBox');
+			});
+			$('#footerListBox .content li').click(function () {
+				$(this).addClass('active').siblings().removeClass('active');
+				closePopBox('#footerListBox');
+			});
+			//留言
+			$('#msgBtn').click(function () {
+				var contentWrap = $('#msgBox'),
+						selectorName = 'actionsheet-toggle';
+				contentWrap.find('.backdrop').toggleClass('backdrop-toggle');
+				contentWrap.find('.content').hasClass(selectorName) ? contentWrap.find('.content').removeClass('actionsheet-toggle') : contentWrap.find('.content').addClass(selectorName);
+				$('html, body').addClass('overflow-hidden');
+			});
+			$('#msgBox .backdrop, #msgBox .cancel').click(function () {
+				closePopBox('#msgBox');
+			});
+			$('#msgBox textarea').keyup(function () {
+				var msgVal = $('#msgBox textarea').val();
+				if (msgVal.length > 0){
+					$(this).siblings('.tips').addClass('hide');
+				}else{
+					$(this).siblings('.tips').removeClass('hide');
+				}
+			});
+			$('#msgBox .send').click(function () {
+				var msgContent = $('#msgContent'),
+						msgContentVal = $('#msgContent').val();
+				if (msgContentVal.length == 0) {
+					msgContent.focus();
+					$.toaster({priority: 'info', title: '提示：', message: '留言不能为空！'});
+				}else if (msgContentVal.length > 200) {
+					msgContent.focus();
+					$.toaster({priority: 'info', title: '提示：', message: '留言长度限200字符！'});
+				}else{
+					closePopBox('#msgBox');
+				}
+			});
+			//提示遮罩
+			$('.guide').click(function () {
+				$('.guide-box .backdrop').addClass('backdrop-toggle');
+				$('.guide-box .content').css('display', 'block');
+				$('html, body').addClass('overflow-hidden');
+			});
+			$('.guide-box .cancel').click(function () {
+				var contentWrap = $('.guide-box');
+				contentWrap.find('.backdrop').removeClass('backdrop-toggle');
+				contentWrap.find('.content').css('display', 'none');
+				$('html, body').removeClass('overflow-hidden');
+			});
+			//点赞
+			$('#praise').on("click", function () {
+				var c = parseInt($("#praiseCount").html());
+				var r = $(this).find('i').attr("rel");
+				if(r === 'praise') {
+					$("#praiseCount").html(c+1);
+					$(this).addClass("active").find('i').attr("rel", "unpraise");
+				}
+				else {
+					$("#praiseCount").html(c-1);
+					$(this).removeClass("active").find('i').attr("rel", "praise");
+				}
+			});
+		});
+		//关闭层
+		function closePopBox(selector){
+			var contentWrap = $(selector),
+					selectorName = 'actionsheet-toggle';
+			contentWrap.find('.backdrop').removeClass('backdrop-toggle');
+			contentWrap.find('.content').removeClass(selectorName).css('bottom', '0');
+			$('html, body').removeClass('overflow-hidden');
+		}
+		//]]>
+		</script>
+	</body>
+</html>

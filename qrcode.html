@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="fullpage">
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="author" content="lonq">
+		<meta name="copyright" content=" ">
+		<title>二维码关注</title>
+		<link href="css/global.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/iconfont/iconfont.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="wrap">
+
+			<!--二维码关注-->
+			<div class="detail-box border-vertical bg-white padding">
+				<div class="qrcode-box">
+					<div id="qrcode1" class="qrcode">
+<!-- 						<img class="img-responsive padding-horizontal" src="images/qrcode-01.jpg" alt="二维码"> -->
+					</div>
+					<div id="qrcode2" class="qrcode qrcode-fingerprint">
+<!-- 						<img class="img-responsive padding-horizontal" src="images/qrcode-01.jpg" alt="二维码"> -->
+					</div>
+				</div>
+			</div>
+			<!--二维码关注 end-->
+
+		</div>
+
+		<script src="js/qrcodejs-master/qrcode.min.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		new QRCode(document.getElementById('qrcode1'), 'your content');
+		new QRCode(document.getElementById('qrcode2'), 'your content');
+		//]]>
+		</script>
+	</body>
+</html>

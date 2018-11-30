@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="author" content="lonq">
+        <meta name="copyright" content=" ">
+        <title>焦点图、滚动图片、消息提示示例</title>
+        <link href="css/global.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/iconfont/iconfont.css" rel="stylesheet">
+        <link href="js/Swiper-3.3.1/dist/css/swiper.min.css" rel="stylesheet">
+        <link href="js/jquery-toast-plugin-master/dist/jquery.toast.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrap wrap-padding-bottom">
+            <!-- 筛选 -->
+            <ul id="myDropdown" class="navbar-nav navbar-nav4">
+                <li class="dropdown">
+                    <a id="dLabel1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>类别</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel1">
+                        <li><a href="#">子菜单一</a></li>
+                        <li><a href="#">子菜单一</a></li>
+                        <li><a href="#">子菜单一</a></li>
+                        <li><a href="#">子菜单一</a></li>
+                        <li><a href="#">子菜单一</a></li>
+                        <li><a href="#">子菜单一</a></li>
+                        <li><a href="#">子菜单一</a></li>
+                        <li><a href="#">子菜单一</a></li>
+                        <li><a href="#">子菜单一</a></li>
+                        <li><a href="#">子菜单一</a></li>
+                    </ul>
+                </li>
+                <li role="presentation" class="dropdown">
+                    <a id="dLabel2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        购买方式
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel2">
+                        <li><a href="#">子菜单二</a></li>
+                        <li><a href="#">子菜单二</a></li>
+                    </ul>
+                </li>
+                <li role="presentation" class="dropdown">
+                    <a id="dLabel3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        价格
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel3">
+                        <li><a href="#">子菜单三</a></li>
+                        <li><a href="#">子菜单三</a></li>
+                    </ul>
+                </li>
+                <li role="presentation" class="dropdown">
+                    <a id="dLabel4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        时间
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel4">
+                        <li><a href="#">子菜单四</a></li>
+                        <li><a href="#">子菜单四</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- 筛选 end -->
+
+            <!-- 选择菜单1 -->
+            <div class="menu-nav margin-top">
+                <div class="menu-wrap">
+                    <ul class="menu-nav-list">
+                        <li class="active"><a href="#"><span>菜单一</span></a></li>
+                        <li><a href="#"><span>菜单二</span></a></li>
+                        <li><a href="#"><span>菜单三</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 选择菜单1 end -->
+            <!-- 选择菜单2 -->
+            <div class="menu-nav menu-nav-block margin-vertical">
+                <div class="menu-wrap">
+                    <ul class="menu-nav-list">
+                        <li class="active"><a href="#"><span>菜单测试</span></a></li>
+                        <li><a href="#"><span>菜单测试</span></a></li>
+                        <li><a href="#"><span>菜单测试</span></a></li>
+                        <li><a href="#"><span>菜单测试</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 选择菜单2 end -->
+
+            <!-- 标签页 -->
+            <div class="tabs-btn btn-group btn-group-sm flex-wrap padding">
+                <a href="#" class="col btn btn-primary btn-primary-line">选项一</a>
+                <a href="#" class="col btn btn-primary btn-primary-line">选项二</a>
+                <a href="#" class="col btn btn-primary btn-primary-line">选项三</a>
+                <a href="#" class="col btn btn-primary btn-primary-line">选项一</a>
+                <a href="#" class="col btn btn-primary btn-primary-line">选项二</a>
+                <a href="#" class="col btn btn-primary btn-primary-line">选项三</a>
+            </div>
+            <div class="swiper-container tabs-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide padding">
+                        <div class="content-slide">
+                            <p>选项一，Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide padding">
+                            <p>选项二，根据最新的 jQuery 1.11.x 和 2.1.x 版本翻译的 jQuery API 中文文档/手册。</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide padding">
+                            <p>选项三，w3schools.com 是最受欢迎的前端技术教程网站，但是国内用户一直不能访问，并且国内的中文翻译版本十分陈旧。因此做了个镜像，希望英文好的同学直接去看原版教程吧！</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide padding">
+                            <p>选项二，根据最新的 jQuery 1.11.x 和 2.1.x 版本翻译的 jQuery API 中文文档/手册。</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide padding">
+                            <p>选项三，w3schools.com 是最受欢迎的前端技术教程网站，但是国内用户一直不能访问，并且国内的中文翻译版本十分陈旧。因此做了个镜像，希望英文好的同学直接去看原版教程吧！</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide padding">
+                            <p>选项二，根据最新的 jQuery 1.11.x 和 2.1.x 版本翻译的 jQuery API 中文文档/手册。</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide padding">
+                            <p>选项三，w3schools.com 是最受欢迎的前端技术教程网站，但是国内用户一直不能访问，并且国内的中文翻译版本十分陈旧。因此做了个镜像，希望英文好的同学直接去看原版教程吧！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 标签页 end -->
+
+            <!-- 幻灯 -->
+            <div class="swiper-container swiper1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img class="swiper-lazy" data-src="uploadfiles/pic-01.jpg">
+                        <div class="swiper-lazy-preloader"><img src="images/placeholder.png"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="swiper-lazy" data-src="uploadfiles/pic-02.jpg">
+                        <div class="swiper-lazy-preloader"><img src="images/placeholder.png"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="swiper-lazy" data-src="uploadfiles/pic-03.jpg">
+                        <div class="swiper-lazy-preloader"><img src="images/placeholder.png"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="swiper-lazy" data-src="uploadfiles/pic-04.jpg">
+                        <div class="swiper-lazy-preloader"><img src="images/placeholder.png"></div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination swiper-pagination1"></div>
+            </div>
+            <!-- 幻灯 end -->
+            <!-- 滚动图片 -->
+            <div class="scroll scroll-left border-vertical margin-top">
+                <h3>您当前有<span class="text-danger">350</span>金币，可在金币广场兑换如下商品：</h3>
+                <div class="swiper-container swiper2 padding-bottom">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="swiper-lazy" data-src="uploadfiles/pic-01.jpg">
+                            <div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+                            <h4>小博士（G700）智能手表</h4>
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-lazy" data-src="uploadfiles/pic-02.jpg">
+                            <div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+                            <h4>小博士（G700）智能手表</h4>
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-lazy" data-src="uploadfiles/pic-03.jpg">
+                            <div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+                            <h4>小博士（G700）智能手表</h4>
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-lazy" data-src="uploadfiles/pic-04.jpg">
+                            <div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+                            <h4>小博士（G700）智能手表</h4>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination swiper-pagination2"></div>
+                </div>
+            </div>
+            <!-- 滚动图片 end -->
+
+            <!-- 列表 -->
+            <div class="list margin-top">
+                <div class="item vertical">
+                    <h3>支付方式</h3>
+                    <span class="item-note text-dark">总计<strong class="text-danger">20.00</strong>元</span>
+                </div>
+                <div class="item vertical item-toggle">
+                    <h3>开关</h3>
+                    <label class="toggle">
+                        <input type="checkbox" value="on">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </div>
+                <a class="item vertical item-icon-left item-icon-right" href="javascript: void(0);">
+                    <i class="icon iconfont-unlock text-danger"></i>
+                    <h3>已解锁答案</h3>
+                    <i class="icon-accessory"></i>
+                </a>
+                <a class="item vertical item-icon-left item-button-right" href="http://www.163.com/">
+                    <i class="icon iconfont-rss text-success"></i>
+                    <h3>订阅（带链接）</h3>
+                    <button type="button" class="btn btn-success" data-even="http://www.baidu.com/">跳转</button>
+                </a>
+                <a class="item vertical item-icon-left item-button-right" href="http://www.hao123.com/">
+                    <i class="icon iconfont-questioncircleline text-primary"></i>
+                    <h3>问题（带链接）</h3>
+                    <button type="button" id="toPay" class="btn btn-default" onclick="">事件</button>
+                </a>
+                <a class="item vertical item-icon-left item-icon-right" href="javascript: void(0);">
+                    <i class="icon iconfont-lamp text-warning"></i>
+                    <h3>答案</h3>
+                    <span class="item-note margin-right">文字</span>
+                    <span class="badge badge-warning">徽章</span>
+                    <i class="icon-accessory"></i>
+                </a>
+                <a id="test" class="item vertical item-icon-left item-icon-right" href="javascript: void(0);">
+                    <i class="icon iconfont-weixin text-success"></i>
+                    <h3>微信支付</h3>
+                    <span class="label label-warning-line">标签</span>
+                    <span class="label label-warning-line">标签</span>
+                </a>
+                <a class="item vertical item-radio">
+                    <label class="radio">
+                        <input type="radio" name="r1">
+                    </label>
+                    <h3>单选一</h3>
+                </a>
+                <a class="item vertical item-radio">
+                    <label class="radio">
+                        <input type="radio" name="r1">
+                    </label>单选二
+                </a>
+                <a class="item vertical item-checkbox item-checkbox-right">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>多选一
+                </a>
+                <a class="item vertical item-checkbox item-checkbox-right">
+                    <label class="checkbox">
+                        <input type="radio" name="r11">
+                    </label>单选二
+                </a>
+                <a class="item vertical item-checkbox item-checkbox-right">
+                    <label class="checkbox">
+                        <input type="radio" name="r11">
+                    </label>单选二
+                </a>
+                <div class="item vertical">
+                    <p>卡片(card)默认样式带有box-shadow(阴影)，由于性能的原因，和他类似的元素像 list list-inset 并没有阴影。</p>
+                </div>
+            </div>
+            <!-- 头像列表 -->
+            <div class="list">
+                <div class="item item-avatar">
+                    <div class="content vertical">
+                        <div class="avatar text-sm relative">
+                            <img class="lazy" src="images/placeholder-avatar.png" data-original="uploadfiles/user-face-01.jpg" alt="头像">
+                        </div>
+                        <div class="text">
+                            <h4>开心的猫 <span class="label label-danger">团长</span></h4>
+                            <div class="text-sm text-danger">已有<em>3</em>人参团，还差<em>2</em>人成<em>5</em>人团</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item item-avatar">
+                    <div class="content vertical">
+                        <div class="avatar">
+                            <img class="lazy" src="images/placeholder-avatar.png" data-original="uploadfiles/user-face-02.jpg" alt="头像">
+                        </div>
+                        <div class="text">
+                            <h4>开心的猫</h4>
+                            <p class="text-xs">2016-08-25 16:48:34</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 头像列表 end -->
+            <div class="list card margin-vertical">
+                <div class="item padding" href="goods-detail.html">
+                    <h2 class="title"><span class="text-ellipsis-2">最受欢迎的前端技术教程网站，但是国内用户一直不能访问，并且国内的中文翻译版本十分陈旧。</span></h2>
+                    <div class="content vertical relative">
+                        <i class="corner icons-bg icons-bg-red">2元</i>
+                        <div class="thumbnail thumbnail-lg">
+                            <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-01.jpg" alt="图片">
+                        </div>
+                        <div class="text locate">
+                            <div class="text-sm">
+                                <span class="label label-default-line">宝贝</span><span class="label label-default-line">7折券</span><span class="label label-default-line">8折券</span>
+                            </div>
+                            <div class="progress progress-mini margin-top">
+                                <div class="progress-bar progress-bar-warning" role="progressbar"style="width: 75%;"></div>
+                            </div>
+                            <div class="progress-text text-xs clearfix">
+                                <div class="pull-left text-gray">总需2000人次</div>
+                                <div class="pull-right">剩余<span class="text-danger">1652</span>人次</div>
+                            </div>
+                            <ul class="flex-wrap bottom-row list-unstyled text-sm text-gray">
+                                <li class="col"><i class="icon iconfont-share"></i> 999+</li>
+                                <li class="col"><i class="icon iconfont-commenting"></i> 999+</li>
+                                <li class="col"><i class="icon iconfont-thumbsup"></i> 999+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-wrap bg-white border-bottom margin-bottom">
+                    <div class="col">
+                        <a class="btn btn-full no-border text-default">左按钮</a>
+                    </div>
+                    <div class="col border-left">
+                        <a class="btn btn-full no-border text-primary">右按钮</a>
+                    </div>
+                </div>
+                <a class="item vertical" href="goods-detail.html">
+                    <div class="content">
+                        <div class="thumbnail thumbnail-sm">
+                            <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-02.jpg" alt="图片">
+                        </div>
+                        <div class="text locate">
+                            <h4 class="text-ellipsis">苹果apple iphone6s plus 64g</h4>
+                            <div class="text-sm margin-vertical">
+                                <span class="label label-default-line">宝贝</span>
+                                <span class="label label-default-line">7折券</span>
+                                <span class="label label-default-line">8折券</span>
+                            </div>
+                            <ul class="bottom-row flex-wrap list-unstyled text-sm text-gray">
+                                <li class="col"><i class="icon iconfont-share"></i> 999+</li>
+                                <li class="col"><i class="icon iconfont-commenting"></i> 999+</li>
+                                <li class="col"><i class="icon iconfont-thumbsup"></i> 999+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+                <a class="item vertical" href="goods-detail.html">
+                    <div class="content">
+                        <div class="thumbnail thumbnail-xs">
+                            <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-03.jpg" alt="图片">
+                        </div>
+                        <div class="text locate">
+                            <h4 class="text-ellipsis">苹果apple iphone6s plus 64g</h4>
+                            <div class="progress progress-mini margin-top">
+                                <div class="progress-bar progress-bar-warning" role="progressbar"style="width: 75%;"></div>
+                            </div>
+                            <div class="progress-text text-xs clearfix">
+                                <div class="pull-left text-gray">总需2000人次</div>
+                                <div class="pull-right">剩余<span class="text-danger">1652</span>人次</div>
+                            </div>
+                            <ul class="bottom-row flex-wrap list-unstyled text-sm text-gray">
+                                <li class="col"><i class="icon iconfont-share"></i> 999+</li>
+                                <li class="col"><i class="icon iconfont-commenting"></i> 999+</li>
+                                <li class="col"><i class="icon iconfont-thumbsup"></i> 999+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+                <a class="item vertical" href="goods-detail.html">
+                    <i class="corner corner-impress img-responsive"><img src="uploadfiles/groups-2.png"></i>
+                    <div class="content">
+                        <div class="thumbnail thumbnail-xs relative">
+                            <i class="corner icons-picture icons-portion-orange"><em>1</em>元</i>
+                            <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-04.jpg" alt="图片">
+                        </div>
+                        <div class="text locate">
+                            <h4 class="title text-ellipsis-2">卡片(card)默认样式带有box-shadow(阴影)，由于性能的原因，和他类似的元素像 list list-inset 并没有阴影。</h4>
+                            <p class="bottom-row text-xs">
+                                时间：<em>2016-07-26 14:24:42</em>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a class="item vertical" href="goods-detail.html">
+                    <div class="content vertical">
+                        <div class="text">
+                            <h4 class="title text-ellipsis">苹果apple iphone6s plus 64g</h4>
+                            <p class="text-ellipsis-2 margin-top">
+                                卡片(card)默认样式带有box-shadow(阴影)，由于性能的原因，和他类似的元素像 list list-inset 并没有阴影。
+                            </p>
+                            <small class="text-gray">
+                                2016-07-26 14:24:42
+                            </small>
+                        </div>
+                        <div class="thumbnail thumbnail-right thumbnail-xs">
+                            <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-06.jpg" alt="图片">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- 列表 end -->
+
+            <!-- 进度条 -->
+            <div class="bg-white padding">
+                <div class="progress progress-mini margin-top">
+                    <div class="progress-bar progress-bar-warning" role="progressbar"style="width: 75%;"></div>
+                </div>
+                <div class="progress-text text-xs clearfix">
+                    <div class="pull-left text-gray">总需2000人次</div>
+                    <div class="pull-right">剩余<span class="text-danger">1652</span>人次</div>
+                </div>
+            </div>
+            <!-- 进度条 end -->
+            <!-- 标签 -->
+            <div class="bg-white padding">
+                <div class="text-sm">
+                    <span class="label label-default-line">宝贝</span>
+                    <span class="label label-default">7折券</span>
+                    <span class="label label-primary-line">8折券</span>
+                    <span class="label label-primary">9折券</span>
+                </div>
+            </div>
+            <div class="padding">
+                Messages <span class="badge badge-default">4</span>
+                <button class="btn btn-danger" type="button">
+                    Messages <span class="badge">4</span>
+                </button>
+            </div>
+            <!-- 标签 end -->
+            <!-- 伸缩 -->
+            <div class="list tablist" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="item vertical item-icon-right collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                    <h3>伸缩菜单1 - 默认关闭：“collapsed”</h3>
+                    <i class="caret"></i>
+                </div>
+                <div id="collapse1" class="detail-box padding collapse">
+                    伸缩内容1
+                </div>
+                <div class="item vertical item-icon-right" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                    <h3>伸缩菜单2 - 默认展开</h3>
+                    <i class="caret"></i>
+                </div>
+                <div id="collapse2" class="detail-box padding collapse in">
+                    伸缩内容2 - 默认展开：“in”
+                </div>
+            </div>
+            <!-- 伸缩 end -->
+            <!-- 消息 -->
+            <div class="flex-wrap horizontal vertical" style="min-height: 300px;">
+                <div class="msg msg-primary">
+                    <h1><i class="icon iconfont-correctcircleline"></i></h1>
+                    <h3 class="text-center">验证成功</h3>
+                    <p>恭喜您获得<em class="text-danger">XX</em>金币，已打入您账户。<br>请在“”好班“公众号个人中心查看。</p>
+                    <div class="links text-center">
+                        <a class="btn btn-default btn-default-line">返回首页</a>
+                        <a class="btn-primary">提交新问题</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 消息 end -->
+            <!-- 水平表单 -->
+            <form class="form-inline bg-white padding margin-top" method="post">
+                <h4>水平表单</h4>
+                <div class="form-group vertical">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" id="userName1" name="userName1" placeholder="userName" pattern="^1[3-9]\d{9}$" required>
+                    </div>
+                </div>
+                <div class="form-group vertical">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="eMail" name="eMail" placeholder="eMail">
+                        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                    </div>
+                </div>
+                <div class="form-group vertical">
+                    <input type="text" class="form-control" id="verify1" name="verify1" placeholder="verify">
+                    <input type="button" class="btn btn-primary" onclick="setTime(this)" value="获取验证码">
+                </div>
+                <div class="form-group vertical">
+                    <div id="customize-spinner1" class="input-group input-group-custom spinner">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" data-spin="down"><strong>－</strong></button>
+                        </span>
+                        <input type="text" class="form-control" id="spinnerNum1" name="spinnerNum" value="10" autocomplete="off">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" data-spin="up"><strong>＋</strong></button>
+                            <button type="button" class="btn btn-clear">人次</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group vertical">
+                    <div id="customize-spinner" class="input-group input-group-sm spinner spinner-sm" data-trigger="spinner">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" data-spin="down"><strong>－</strong></button>
+                        </span>
+                        <input type="text" class="form-control" id="spinnerNum" name="spinnerNum" value="10" data-min="10" data-max="20" data-step="10" autocomplete="off">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" data-spin="up"><strong>＋</strong></button>
+                            <button type="button" class="btn btn-clear">人次</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group vertical">
+                    <button id="toasterBtn" type="button" class="btn btn-default">无堵塞消息提示</button>
+                </div>
+                <div class="form-group vertical">
+                    <input type="reset" id="res" class="btn btn-default" value="重置">
+                    <input type="submit" id="send" class="btn btn-primary" value="提交">
+                </div>
+            </form>
+            <!-- 水平表单 end -->
+            <!-- 带标题的水平表单 -->
+            <form class="form-horizontal bg-white padding margin-top" role="form">
+                <h4>带标题的水平表单</h4>
+                <div class="form-group vertical">
+                    <label for="inputEmail3" class="control-label">邮件地址</label>
+                    <div class="col">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group vertical">
+                    <label for="inputPassword3" class="control-label">验证码</label>
+                    <div class="col">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>&nbsp;
+                    <input type="button" class="btn btn-primary" onclick="setTime(this)" value="获取验证码">
+                </div>
+                <div class="form-group vertical">
+                    <label class="control-label"></label>
+                    <div class="col">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 同意
+                            </label>
+                        </div>
+                    </div>
+                    <a id="agreementBtn" class="text-primary text-sm">阅读“服务协议”</a>
+                </div>
+                <div class="form-group vertical">
+                    <input type="reset" class="btn btn-default btn-block" value="重置">
+                    <input type="submit" class="btn btn-primary btn-block" value="提交">
+                </div>
+            </form>
+            <!-- 带标题的水平表单 end -->
+            <!-- 带标题的垂直表单 -->
+            <form class="bg-white padding margin-top" role="form">
+                <h4>带标题的垂直表单</h4>
+                <div class="form-group direction-col">
+                    <label class="control-label" for="inputEmail3">邮件地址</label>
+                    <div class="col">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group direction-col">
+                    <label class="control-label" for="inputPassword3">验证码</label>
+                    <div class="flex-wrap">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">&nbsp;
+                        <input type="button" class="btn btn-primary" onclick="setTime(this)" value="获取验证码">
+                    </div>
+                </div>
+                <div class="form-group direction-col">
+                    <div class="col">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 记住我
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group vertical">
+                    <input type="reset" class="btn btn-default btn-block" value="重置">
+                    <input type="submit" class="btn btn-primary btn-block" value="提交">
+                </div>
+            </form>
+            <!-- 带标题的垂直表单 end -->
+            <!-- 经典h5表单 -->
+            <form class="form-classics border-vertical bg-white padding margin-top" method="post">
+                <h4 class="margin-bottom">经典h5表单</h4>
+                <div class="form-group clear-text vertical divider">
+                    <label class="control-label" for="userName">用户名</label>
+                    <div class="col">
+                        <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入用户名" pattern="^1[3-9]\d{9}$" required>
+                    </div>
+                    <i class="control-action clear-text-btn text-gray iconfont-wrongcircle invisible"></i>
+                </div>
+                <div class="form-group clear-text vertical divider">
+                    <label class="control-label" for="password">密码</label>
+                    <div class="col">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" pattern="^1[3-9]\d{9}$" required>
+                    </div>
+                    <i class="control-action clear-text-btn text-gray iconfont-wrongcircle invisible"></i>
+                    <i id="togglePassword" class="control-action text-gray iconfont-eyeslash"></i>
+                </div>
+                <div class="form-group clear-text vertical divider">
+                    <label class="control-label" for="verify">验证码</label>
+                    <div class="col">
+                        <input type="text" class="form-control" id="verify" name="verify" placeholder="请输入验证码" pattern="^1[3-9]\d{9}$" required>
+                    </div>
+                    <i class="control-action clear-text-btn text-gray iconfont-wrongcircle invisible"></i>
+                    <input type="button" class="btn btn-primary" onclick="setTime(this)" value="获取验证码">
+                </div>
+                <div class="form-group vertical text-right divider">
+                    <input type="reset" id="res" class="btn btn-default" value="重置">&nbsp;
+                    <input type="submit" id="send" class="btn btn-primary" value="提交">
+                </div>
+            </form>
+            <!-- 经典h5表单 end -->
+
+            <!--左右带横线的文字-->
+            <div class="caption padding-vertical">
+                <h4 class="title"><span>标题</span></h4>
+            </div>
+            <!--左右带横线的文字 end-->
+
+            <!--二维码关注-->
+            <div class="detail-box border-vertical bg-white padding margin-vertical">
+                <p class="text-center padding-vertical">长按二维码关注公众号即可参加活动。</p>
+                <div class="qrcode-box">
+                    <div class="qrcode">
+                        <img class="img-responsive padding-horizontal" src="images/qrcode-01.jpg" alt="二维码">
+                    </div>
+                    <div class="qrcode qrcode-fingerprint">
+                        <img class="img-responsive padding-horizontal" src="images/qrcode-01.jpg" alt="二维码">
+                    </div>
+                </div>
+            </div>
+            <!--二维码关注 end-->
+
+            <!--二维码关注-->
+            <div class="flex-wrap vertical horizontal">
+                <div class="padding">
+                    <p class="text-center padding">关注好班公众号，查看物流信息，跟踪物流状态。</p>
+                    <div class="caption padding-vertical">
+                        <h4 class="title qrcode">
+                            <div id="qrcode" class="corner-encircle padding img-responsive">
+                                <span class="top-left"></span><span class="top-right"></span><span class="bottom-left"></span><span class="bottom-right"></span>
+                            </div>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!--二维码关注 end-->
+
+            <div class="padding">
+                <h4>图标</h4>
+                <ul class="list-inline list-unstyled text-title ">
+                    <li><i class="iconfont-camera"></i></li>
+                    <li><i class="iconfont-clock"></i></li>
+                    <li><i class="iconfont-commenting"></i></li>
+                    <li><i class="iconfont-correct"></i></li>
+                    <li><i class="iconfont-correctcircle"></i></li>
+                    <li><i class="iconfont-correctcircleline"></i></li>
+                    <li><i class="iconfont-crowds"></i></li>
+                    <li><i class="iconfont-delete"></i></li>
+                    <li><i class="iconfont-diamond"></i></li>
+                    <li><i class="iconfont-edit"></i></li>
+                    <li><i class="iconfont-exclamationcircle"></i></li>
+                    <li><i class="iconfont-alipay"></i></li>
+                    <li><i class="iconfont-angledown"></i></li>
+                    <li><i class="iconfont-angledownfine"></i></li>
+                    <li><i class="iconfont-angleleft"></i></li>
+                    <li><i class="iconfont-angleright"></i></li>
+                    <li><i class="iconfont-angleup"></i></li>
+                    <li><i class="iconfont-angleupfine"></i></li>
+                    <li><i class="iconfont-back"></i></li>
+                    <li><i class="iconfont-bell"></i></li>
+                    <li><i class="iconfont-eye"></i></li>
+                    <li><i class="iconfont-eyeslash"></i></li>
+                    <li><i class="iconfont-gift"></i></li>
+                    <li><i class="iconfont-heart"></i></li>
+                    <li><i class="iconfont-exclamationcircleline"></i></li>
+                    <li><i class="iconfont-heartline"></i></li>
+                    <li><i class="iconfont-paint"></i></li>
+                    <li><i class="iconfont-picture"></i></li>
+                    <li><i class="iconfont-plus"></i></li>
+                    <li><i class="iconfont-pulldown"></i></li>
+                    <li><i class="iconfont-pullup"></i></li>
+                    <li><i class="iconfont-questioncircle"></i></li>
+                    <li><i class="iconfont-infocircle"></i></li>
+                    <li><i class="iconfont-infocircleline"></i></li>
+                    <li><i class="iconfont-key"></i></li>
+                    <li><i class="iconfont-lamp"></i></li>
+                    <li><i class="iconfont-links"></i></li>
+                    <li class="alert alert-loading"><i class="iconfont-loading"></i></li>
+                    <li><i class="iconfont-locationpin"></i></li>
+                    <li><i class="iconfont-lock"></i></li>
+                    <li><i class="iconfont-mic"></i></li>
+                    <li><i class="iconfont-minus"></i></li>
+                    <li><i class="iconfont-more"></i></li>
+                    <li><i class="iconfont-save"></i></li>
+                    <li><i class="iconfont-search"></i></li>
+                    <li><i class="iconfont-setting"></i></li>
+                    <li><i class="iconfont-share"></i></li>
+                    <li><i class="iconfont-star"></i></li>
+                    <li><i class="iconfont-starline"></i></li>
+                    <li><i class="iconfont-thumbsdown"></i></li>
+                    <li><i class="iconfont-thumbsup"></i></li>
+                    <li><i class="iconfont-truck"></i></li>
+                    <li><i class="iconfont-unlock"></i></li>
+                    <li><i class="iconfont-user"></i></li>
+                    <li><i class="iconfont-video"></i></li>
+                    <li><i class="iconfont-wallet"></i></li>
+                    <li><i class="iconfont-questioncircleline"></i></li>
+                    <li><i class="iconfont-rss"></i></li>
+                    <li><i class="iconfont-wechatpay"></i></li>
+                    <li><i class="iconfont-weixin text-success"></i></li>
+                    <li><i class="iconfont-wifi"></i></li>
+                    <li><i class="iconfont-wrong"></i></li>
+                    <li><i class="iconfont-wrongcircle"></i></li>
+                    <li><i class="iconfont-wrongcircleline"></i></li>
+                    <li><i class="iconfont-tel"></i></li>
+                    <li><i class="iconfont-speakeron"></i></li>
+                    <li><i class="iconfont-speakeroff"></i></li>
+                    <li><i class="iconfont-navicon"></i></li>
+                    <li><i class="iconfont-fly"></i></li>
+                    <li><i class="iconfont-flyline"></i></li>
+                    <li><i class="iconfont-link"></i></li>
+                    <li><i class="iconfont-magic"></i></li>
+                    <li><i class="iconfont-stopline"></i></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- 底部 -->
+        <!-- <div id="footer" class="footer no-border">
+            <button type="button" class="btn btn-danger btn-block btn-full">2元拼手气</button>
+        </div> -->
+        <!-- <div id="footer" class="footer">
+            <div class="btn-center"><button type="button" class="btn btn-danger btn-block btn-curve">确定</button></div>
+        </div> -->
+        <!-- <div id="footer" class="footer">
+            <div class="btn-left padding-horizontal">新一期夺宝活动正在进行中！</div>
+            <div class="btn-right"><a class="btn btn-danger btn-full" href="goods-detail.html">立即前往</a></div>
+        </div> -->
+        <!-- <div id="footer" class="footer double-btn">
+            <div class="btn-left"><a class="btn btn-default btn-block btn-full" href="goods-detail.html">立即前往</a></div>
+            <div class="btn-right"><a class="btn btn-danger btn-block btn-full" href="goods-detail.html">立即前往</a></div>
+        </div> -->
+        <!-- <div id="footer" class="footer">
+            <div class="btn-left"><a class="btn btn-clear" href="javascript: history.go(-1);"><i class="icon iconfont-back"></i></a></div>
+            <div class="btn-center"><button type="button" class="btn btn-danger btn-block btn-curve">2元拼手气</button></div>
+            <div class="btn-right"><a id="footerListBtn" class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-navicon"></i></a></div>
+        </div> -->
+        <!-- <ul id="footer" class="footer flex-wrap tabs tabs-vertical average vertical text-center">
+            <li class="col"><a class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-back"></i><span class="tip">菜单一</span></a></li>
+            <li class="col"><a id="msgBtn" class="btn btn-clear active" href="javascript: void(0);"><span class="badge badge-danger">66</span><i class="icon iconfont-edit"></i><span class="tip">菜单二</span></a></li>
+            <li class="col"><a id="praiseBtn" class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-thumbsup"></i><span class="tip">菜单三</span></a></li>
+            <li class="col"><a class="guide btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-share"></i><span class="tip">菜单四</span></a></li>
+        </ul> -->
+        <ul id="footer" class="footer flex-wrap tabs tabs-horizontal average vertical text-center">
+            <li class="col"><a id="footerListBtn" class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-navicon"></i></a></li>
+            <li class="col"><a id="msgBtn" class="btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-edit"></i></a></li>
+            <li class="col"><a id="praise" class="btn btn-clear btn-praise relative" href="javascript: void(0);"><i class="icon iconfont-thumbsup"></i> <span id="praiseNum">999+</span></a></li>
+            <li class="col"><a class="guide btn btn-clear" href="javascript: void(0);"><i class="icon iconfont-share"></i></a></li>
+        </ul>
+        <!-- 底部 end -->
+        <!-- 模态框（协议） -->
+        <div class="modal modal-agreement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="text-md">好班一元夺宝服务协议</h4>
+                    </div>
+                    <div class="modal-body"><!--内容未定-->
+                        <h4>一、总则</h4>
+                        <p>1.1 圈圈作业的所有权和运营权归北京清大世纪教育投资顾问有限公司所有。</p>
+                        <p>1.2 用户在注册圈圈作业之前，请仔细地阅读以下各项条款，最后请在浏览完毕后点击“同意”，表示您同意接受本协议所约定之一切依法保障之权利与义务后方可成为注册用户。一旦注册成功，则用户与圈圈作业之间自动达成本协议约定的条款，用户应当受本协议的约束。用户在使用特殊的服务或产品时，应当同意接受相关协议后方能使用。</p>
+                        <p>1.3 本协议则可由圈圈作业随时更新，用户应当及时关注并决定自己的立场。用户登录使用本网站，表明其愿意接受更新内容。本网站的通知、公告、声明或其它类似内容是本协议的一部分。</p>
+                        <h4>二、服务内容</h4>
+                        <p>2.1 圈圈作业的具体内容由本网站根据实际情况提供。</p>
+                        <p>2.2 本网站仅提供相关的网络服务，除此之外与相关网络服务有关的设备(如个人电脑、手机、及其他与接入互联网或移动网有关的装置)及所需的费用(如为接入互联网而支付的电话费及上网费、为使用移动网而支付的手机费)均应由用户自行负担。</p>
+                        <h4>三、用户帐号</h4>
+                        <p>3.1 经本网站注册系统完成注册程序并通过身份认证的用户即成为正式用户，可以获得本网站规定用户所应享有的一切权限；未经认证仅享有本网站规定的部分权限。圈圈作业有权对用户的权限设计进行变更。</p>
+                        <p>3.2 用户只能按照注册要求使用真实姓名及身份证号注册。用户有义务保证密码和帐号的安全，一切凭借账号和密码进行的操作均视为用户本人操作。用户利用该密码和帐号所进行的一切活动引起的任何损失或损害，由用户自行承担全部责任，本站不承担任何责任。如用户发现帐号遭到未授权的使用或发生其他任何安全问题，应立即修改帐号密码并妥善保管，如有必要，请通知本网站。因黑客行为或用户的保管疏忽导致帐号非法使用，本网站不承担任何责任。</p>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- 模态框 end -->
+
+        <!-- 底部子菜单 -->
+        <div id="footerListBox" class="footer-list-box">
+            <div class="backdrop"></div>
+            <ul class="actionsheet content">
+                <li><a href="#">底部子菜单</a></li>
+                <li><a href="#">底部子菜单</a></li>
+            </ul>
+        </div>
+        <!-- 底部子菜单 end -->
+        <!-- 留言 -->
+        <div id="msgBox" class="msg-box">
+            <div class="backdrop"></div>
+            <div class="actionsheet content bg-white padding">
+                <form>
+                    <div class="msg-content">
+                        <div class="tips">写评论（限200字）</div>
+                        <textarea id="msgContent" class="" placeholder="评论"></textarea>
+                    </div>
+                    <div class="msg-footer text-right">
+                        <button type="button" class="cancel btn btn-default">关闭</button>
+                        <button type="button" class="send btn btn-primary">发送</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- 留言 end -->
+        <!-- 向导 -->
+        <div class="guide-box">
+            <div class="backdrop"></div>
+            <div class="content clearfix">
+                <img class="img-responsive pull-right" src="images/guide-01.png">
+            </div>
+        </div>
+        <!-- 向导 end -->
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
+        <script src="js/bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/jquery.spinner.min.js"></script>
+        <script src="js/jquery-toast-plugin-master/dist/jquery.toast.min.js"></script>
+        <script src="js/jquery.togglePassword.min.js"></script>
+        <script src="js/jquery.lazyload.min.js"></script>
+        <script src="js/qrcodejs-master/qrcode.min.js"></script>
+        <script src="js/common.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[
+        var count = 5;
+        var myCountDown;
+        $(function(){
+            //延迟加载
+            $('img.lazy').lazyload({effect: 'fadeIn'});
+            //item多链接
+            $('.item').each(function () {
+                $(this).find('[data-even]').on('click', function (e) {
+                    var url1 = $(this).parents().href;
+                    var url2 = $(this).attr('data-even');
+                    if (url1 != '' || url1 != '#') {
+                        location.href = url2;
+                        return false; //修改<a>的 href属性值为 #  这样状态栏不会显示链接地址  
+                        e.preventDefault(); // 如果<a>定义了 target="_blank“ 需要这句来阻止打开新页面
+                    }
+                });
+            });
+            //点击读秒
+            $('#verifyBtn').on('click', function () {
+                myCountDown = setInterval(countDown,1000);
+            });
+            //幻灯
+            var swiper1 = new Swiper('.swiper1', {
+                pagination: '.swiper-pagination1',
+                paginationClickable: true,
+                autoplay: 3000,
+                preloadImages: false,
+                lazyLoading: true
+            });
+            //滚动图片
+            var swiper = new Swiper('.swiper2', {
+                pagination: '.swiper-pagination2',
+                slidesPerView: 2,
+                paginationClickable: true,
+                spaceBetween: 20,
+                //preloadImages: false,
+                //lazyLoading: true
+            });
+            //标签页
+            if (sessionStorage.getItem("tabsIndex")) {
+                var index = sessionStorage.getItem("tabsIndex");
+            }else {
+                var index = 0;
+            }
+            $(".tabs-btn a").eq(index).addClass('active').siblings().removeClass('active');
+            var tabsSwiper = new Swiper('.tabs-container', {
+                //onlyExternal : true,
+                initialSlide: index,
+                speed: 500,
+                onSlideChangeStart: function (swiper) {
+                    var i = $(".swiper-slide-active").index();
+                    $('.tabs-btn .active').removeClass('active');
+                    //$('.tabs-btn a').eq(tabsSwiper.activeIndex).addClass('active');
+                    //console.log(tabsSwiper.activeIndex);
+                    $('.tabs-btn a').eq(i).addClass('active');
+                    sessionStorage.setItem("tabsIndex", i);
+                }
+            });
+            $('.tabs-btn a').on('touchstart mousedown',function(e){
+                e.preventDefault();
+                $(this).addClass('active').siblings().removeClass('active');
+                tabsSwiper.slideTo($(this).index());
+                sessionStorage.setItem("tabsIndex", $(this).index());
+            });
+            //无堵塞消息提示
+            $('#toasterBtn').on('click', function(){
+                $.toast({
+                    heading: '提示',
+                    text: '消息内容',
+                    hideAfter: 1500,
+                    icon: 'info',
+                    position: 'mid-center',
+                    allowToastClose: false,
+                    loader: false,
+                    stack: false
+                });
+            });
+            //顶部弹出菜单
+            $('.dropdown > a').dropdown();
+            //顶部弹出子菜单
+            $('.dropdown-menu li').click(function () {
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+            //底部弹出菜单
+            $('#footerListBtn').click(function () {
+                var contentWrap = $('#footerListBox'),
+                    selectorName = 'actionsheet-toggle';
+                contentWrap.find('.backdrop').toggleClass('backdrop-toggle');
+                contentWrap.find('.content').hasClass(selectorName) ? contentWrap.find('.content').removeClass('actionsheet-toggle').css('bottom', '0') : contentWrap.find('.content').addClass(selectorName).css('bottom', '54px');
+            });
+            $('#footerListBox .backdrop').click(function () {
+                closePopBox('#footerListBox');
+            });
+            $('#footerListBox .content li').click(function () {
+                $(this).addClass('active').siblings().removeClass('active');
+                closePopBox('#footerListBox');
+            });
+            //留言
+            $('#msgBtn').click(function () {
+                var contentWrap = $('#msgBox'),
+                    selectorName = 'actionsheet-toggle';
+                contentWrap.find('.backdrop').toggleClass('backdrop-toggle');
+                contentWrap.find('.content').hasClass(selectorName) ? contentWrap.find('.content').removeClass('actionsheet-toggle') : contentWrap.find('.content').addClass(selectorName);
+                $('body').addClass('overflow-hidden');
+            });
+            $('#msgBox .backdrop, #msgBox .cancel').click(function () {
+                closePopBox('#msgBox');
+            });
+            $('#msgBox textarea').keyup(function () {
+                var msgVal = $('#msgBox textarea').val();
+                if (msgVal.length > 0){
+                    $(this).siblings('.tips').addClass('hide');
+                }else{
+                    $(this).siblings('.tips').removeClass('hide');
+                }
+            });
+            $('#msgBox .send').click(function () {
+                var msgContent = $('#msgContent'),
+                    msgContentVal = $('#msgContent').val();
+                if (msgContentVal.length == 0) {
+                    msgContent.focus();
+                    $.toaster({priority: 'info', title: '提示：', message: '留言不能为空！'});
+                }else if (msgContentVal.length > 200) {
+                    msgContent.focus();
+                    $.toaster({priority: 'info', title: '提示：', message: '留言长度限200字符！'});
+                }else{
+                    closePopBox('#msgBox');
+                }
+            });
+            //提示遮罩
+            $('.guide').click(function () {
+                $('.guide-box .backdrop').addClass('backdrop-toggle');
+                $('.guide-box .content').css('display', 'block');
+            });
+            $('.guide-box .content').click(function () {
+                $(this).css('display', 'none');
+                $('.guide-box .backdrop').removeClass('backdrop-toggle');
+            });
+            //协议
+            $('#agreementBtn').click(function() {
+                $('.modal-agreement').modal('show');
+            });
+            //显示密码
+            $('#password').togglePassword({
+                el: '#togglePassword'
+            });
+            //点赞
+            $("#praise").click(function(){
+                var _t = $(this);
+                var praiseNum = $("#praiseNum");
+                var num = parseInt(praiseNum.text());
+                if(_t.hasClass("active") == true){
+                    _t.removeClass("active");
+                    num -=1;
+                    praiseNum.text(num)
+                }else{
+                    _t.addClass("active");
+                    num +=1;
+                    praiseNum.text(num)
+                }
+            });
+        });
+        //二维码
+        new QRCode(document.getElementById('qrcode'), 'your content');
+        //倒计时
+        var countDown = 3;
+        function setTime(obj) {
+            if (countDown == 0) {
+                obj.removeAttribute("disabled");
+                obj.value = "获取验证码";
+                countDown = 3;
+                return;
+            } else {
+                obj.setAttribute("disabled", true);
+                obj.value="重新发送(" + countDown + ")";
+                countDown--;
+            }
+            setTimeout(function() {
+                setTime(obj)
+            }, 1000)
+        }
+        //关闭层
+        function closePopBox(selector){
+            var contentWrap = $(selector),
+                selectorName = 'actionsheet-toggle';
+            contentWrap.find('.backdrop').removeClass('backdrop-toggle');
+            contentWrap.find('.content').removeClass(selectorName).css('bottom', '0');
+            $('html, body').removeClass('overflow-hidden');
+        }
+        //]]>
+        </script>
+    </body>
+</html>

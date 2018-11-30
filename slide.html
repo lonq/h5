@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="fullpage">
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="author" content="lonq">
+		<meta name="copyright" content=" ">
+		<title>焦点图、滚动图片、标签页</title>
+		<link href="css/global.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="js/Swiper-3.3.1/dist/css/swiper.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="wrap">
+			<h4 class="padding text-primary">滚动图片</h4>
+			<!-- 滚动图片 -->
+			<div class="scroll scroll-left border-vertical">
+				<h3>您当前有<span class="text-danger">350</span>金币，可在金币广场兑换如下商品：</h3>
+				<div class="swiper-container swiper2 padding-bottom">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="uploadfiles/pic-01.jpg">
+							<div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+							<h4>小博士（G700）智能手表</h4>
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="uploadfiles/pic-02.jpg">
+							<div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+							<h4>小博士（G700）智能手表</h4>
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="uploadfiles/pic-03.jpg">
+							<div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+							<h4>小博士（G700）智能手表</h4>
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="uploadfiles/pic-04.jpg">
+							<div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+							<h4>小博士（G700）智能手表</h4>
+						</div>
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination swiper-pagination2"></div>
+				</div>
+			</div>
+			<!-- 滚动图片 end -->
+			<h4 class="padding text-primary">滑动菜单</h4>
+			<!-- 滑动菜单 -->
+			<div class="padding-horizontal">
+
+				<div class="swiper-container overflow-hidden" id="swiper-tab">
+					<div class="swiper-wrapper margin-bottom">
+						<div href="#" class="swiper-slide btn btn-primary btn-primary-line active">选项一</div>
+						<div href="#" class="swiper-slide btn btn-primary btn-primary-line">选项二</div>
+						<div href="#" class="swiper-slide btn btn-primary btn-primary-line">选项三</div>
+						<div href="#" class="swiper-slide btn btn-primary btn-primary-line">选项四</div>
+						<div href="#" class="swiper-slide btn btn-primary btn-primary-line">选项五</div>
+					</div>
+				</div>
+
+				<div class="swiper-container" id="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+
+							<!-- 幻灯 -->
+							<!-- <h4 class="padding text-primary">幻灯</h4> -->
+							<div class="swiper-container swiper1">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<img class="swiper-lazy" data-src="uploadfiles/pic-01.jpg">
+										<div class="swiper-lazy-preloader"><img src="images/placeholder.png"></div>
+									</div>
+									<div class="swiper-slide">
+										<img class="swiper-lazy" data-src="uploadfiles/pic-02.jpg">
+										<div class="swiper-lazy-preloader"><img src="images/placeholder.png"></div>
+									</div>
+									<div class="swiper-slide">
+										<img class="swiper-lazy" data-src="uploadfiles/pic-03.jpg">
+										<div class="swiper-lazy-preloader"><img src="images/placeholder.png"></div>
+									</div>
+									<div class="swiper-slide">
+										<img class="swiper-lazy" data-src="uploadfiles/pic-04.jpg">
+										<div class="swiper-lazy-preloader"><img src="images/placeholder.png"></div>
+									</div>
+								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination swiper-pagination1"></div>
+							</div>
+							<!-- 幻灯 end -->
+
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="uploadfiles/pic-02.jpg">
+							<div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="uploadfiles/pic-03.jpg">
+							<div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" src="uploadfiles/pic-04.jpg">
+							<div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" src="uploadfiles/pic-05.jpg">
+							<div class="swiper-lazy-preloader"><img src="images/placeholder-thumb.png"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/Swiper-3.3.1/dist/js/swiper.jquery.min.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		$(function() {
+			//滚动图片
+			var swiper2 = new Swiper('.swiper2', {
+				pagination: '.swiper-pagination2',
+				slidesPerView: 2,
+				paginationClickable: true,
+				spaceBetween: 20,
+				preloadImages: false,
+				lazyLoading: true
+			});
+			//滑动菜单
+			var swiperTab = new Swiper('#swiper-tab', {
+				observer: true,
+				observeParents: true,
+				slidesPerView: 3,
+				spaceBetween : 5,
+				onTap: function(swiper) {
+					swiperContainer.slideTo(swiperTab.clickedIndex)
+					localStorage.setItem('slideIndex', swiperTab.clickedIndex);
+				}
+			})
+			var swiperContainer = new Swiper('#swiper-container', {
+				observer: true,
+				observeParents: true,
+				preloadImages: false,
+				lazyLoading: true,
+				onSlideChangeStart: function(swiper) {
+					updateNavPosition()
+					localStorage.setItem('slideIndex', swiperContainer.activeIndex);
+				}
+			})
+			//更新tab状态
+			function updateNavPosition() {
+				$('#swiper-tab .active').removeClass('active')
+				var activeNav = $('#swiper-tab .swiper-slide').eq(swiperContainer.activeIndex).addClass('active');
+				if (!activeNav.hasClass('swiper-slide-visible')) {
+					if (activeNav.index() > swiperTab.activeIndex) {
+						var thumbsPerNav = Math.floor(swiperTab.width/activeNav.outerWidth()) - 1
+						swiperTab.slideTo(activeNav.index() - thumbsPerNav)
+					} else {
+						swiperTab.slideTo(activeNav.index())
+					}
+				}
+			}
+			//默认标签页状态
+			var index = 0;
+			if (localStorage.getItem('slideIndex')) {
+				index = localStorage.getItem('slideIndex');
+				swiperContainer.slideTo(index);
+			}
+		});
+		//]]>
+		</script>
+	</body>
+</html>

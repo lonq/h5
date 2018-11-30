@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="author" content="lonq">
+    <meta name="copyright" content=" ">
+    <title>列表</title>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/iconfont/iconfont.css" rel="stylesheet">
+    <style type="text/css">
+        header {
+            padding-top: 46px;
+        }
+        .affix.affix-top {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 9999;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="">
+        <div class="list border-tiny-bottom affix affix-top">
+            <div class="item vertical">
+                <div class="item-body">
+                    <p>列表</p>
+                </div>
+                <div class="item-footer"><i class="iconfont-modeimage" id="changeViewMode"></i></div>
+            </div>
+        </div>
+    </header>
+    <!-- 列表 start -->
+    <div class="item-title">普通列表</div>
+    <div class="list border-tiny-top border-tiny-bottom clear-margin-top" id="viewWrap">
+        <a class="item item-thumb item-access" href="javascript:;">
+            <div class="thumb thumb-sm relative">
+                <i class="superscript specification"><em>1</em>元</i>
+                <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-01.jpg" alt="图片">
+            </div>
+            <div class="text flex-wrap direction-column justify-content-space-between space-top">
+                <h4 class="title text-ellipsis-2">水平、垂直方向两端对齐，在这里多行文本溢出将显示省略号</h4>
+                <ul class="flex-wrap justify-content-space-between list-unstyled text-xs text-muted">
+                    <li><i class="icon iconfont-share"></i> 999+</li>
+                    <li><i class="icon iconfont-commenting"></i> 999+</li>
+                </ul>
+            </div>
+        </a>
+        <div class="item item-thumb item-access">
+            <div class="thumb thumb-md">
+                <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-03.jpg" alt="图片">
+            </div>
+            <div class="text flex-wrap direction-column space-top">
+                <h4 class="title text-ellipsis">垂直居中</h4>
+                <p class="desc">交叉轴上如何对齐，对齐方式与交叉轴的方向有关。</p>
+                <ul class="flex-wrap space-left list-unstyled text-xs text-muted">
+                    <li><i class="icon iconfont-share"></i> 999+</li>
+                    <li><i class="icon iconfont-commenting"></i> 999+</li>
+                </ul>
+            </div>
+        </div>
+        <a class="item item-thumb item-access" href="javascript:;">
+            <div class="thumb thumb-xs">
+                <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-04.jpg" alt="图片">
+            </div>
+            <div class="text flex-wrap direction-column justify-content-space-between space-top">
+                <h4 class="title text-ellipsis">垂直居中</h4>
+                <ul class="list-unstyled list-inline text-xs">
+                    <li class="label">默认</li>
+                    <li class="label label-primary">主要的</li>
+                    <li class="label label-success">成功</li>
+                    <li class="label label-info">信息</li>
+                    <li class="label label-warning">警告</li>
+                    <li class="label label-danger">危险</li>
+                </ul>
+            </div>
+        </a>
+        <a class="item item-thumb item-access item-thumb-right" href="javascript:;">
+            <div class="text flex-wrap direction-column justify-content-space-between space-top">
+                <h4 class="title text-ellipsis">垂直居中</h4>
+                <p class="desc">交叉轴上如何对齐，对齐方式与交叉轴的方向有关。</p>
+            </div>
+            <div class="thumb thumb-xs">
+                <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-05.jpg" alt="图片">
+            </div>
+        </a>
+        <a class="item item-thumb item-access item-thumb-right" href="javascript:;">
+            <div class="text flex-wrap direction-column justify-content-space-between space-top">
+                <h4 class="title text-ellipsis">垂直居中</h4>
+                <p class="desc">交叉轴上如何对齐，对齐方式与交叉轴的方向有关。</p>
+            </div>
+        </a>
+    </div>
+    <!-- 列表 end -->
+    <!-- 列表 start -->
+    <div class="item-title">头像</div>
+    <div class="list border-tiny-top border-tiny-bottom">
+        <a class="item item-thumb vertical" href="javascript:;">
+            <div class="avatar relative">
+                <i class="badge">8</i>
+                <img class="lazy" src="images/placeholder-avatar.png" data-original="uploadfiles/user-face-01.jpg" alt="图片">
+            </div>
+            <div class="text flex-wrap direction-column space-top">
+                <h4>开心的猫</h4>
+                <p class="desc">2016-08-25 16:48:34</p>
+            </div>
+        </a>
+    </div>
+    <!-- 列表 end -->
+    <!-- 列表 start -->
+    <div class="item-title">列表</div>
+    <div class="list border-tiny-top border-tiny-bottom">
+        <div class="item vertical item-access">
+            <div class="item-body">
+                <span>跳转</span>
+            </div>
+            <div class="item-footer"></div>
+        </div>
+        <div class="item item-swiped">
+            <div class="item-body" style="transform: translateX(-136px);">
+                <div class="item">
+                    <div class="item-body">
+                        <p>左滑事件</p>
+                    </div>
+                    <div class="item-footer">左滑事件说明</div>
+                </div>
+            </div>
+            <div class="item-footer">
+                <a class="swiped-btn swiped-btn-warning delete-swipeout" href="javascript:">删除</a>
+                <a class="swiped-btn swiped-btn-default close-swipeout" href="javascript:">关闭</a>
+            </div>
+        </div>
+        <a class="item vertical item-access" href="javascript: void(0);">
+            <div class="item-header"><i class="icon iconfont-setting text-primary"></i></div>
+            <div class="item-body">
+                <span>已解锁答案</span>
+                <i class="badge">NEW</i>
+            </div>
+            <div class="item-footer item-note">详细</div>
+        </a>
+        <a class="item vertical item-button-right" href="javascript: void(0);">
+            <div class="item-body">
+                <span>按钮</span>
+            </div>
+            <div class="item-footer"><button type="button" class="btn btn-xs btn-primary">按钮</button></div>
+        </a>
+        <div class="item vertical item-toggle">
+            <div class="item-body">
+                <span>开关</span>
+            </div>
+            <label class="item-footer toggle">
+                <input type="checkbox" value="on">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+        </div>
+        <a class="item vertical item-radio item-access">
+            <label class="radio">
+                <input type="radio" name="r1">
+            </label>
+            <div class="item-body">
+                <p>单选一</p>
+            </div>
+        </a>
+        <a class="item vertical item-radio item-access">
+            <label class="radio">
+                <input type="radio" name="r1">
+            </label>
+            <div class="item-body">
+                <p>单选二</p>
+            </div>
+        </a>
+        <a class="item vertical item-checkbox item-access item-checkbox-right">
+            <label class="checkbox">
+                <input type="checkbox">
+            </label>
+            <div class="item-body">
+                <p>多选一</p>
+            </div>
+        </a>
+        <a class="item vertical item-checkbox item-access item-checkbox-right">
+            <label class="checkbox">
+                <input type="radio" name="r11">
+            </label>
+            <div class="item-body">
+                <p>单选一</p>
+            </div>
+        </a>
+        <a class="item vertical item-checkbox item-access item-checkbox-right">
+            <label class="checkbox">
+                <input type="radio" name="r11">
+            </label>
+            <div class="item-body">
+                <p>单选二</p>
+            </div>
+        </a>
+    </div>
+    <!-- 列表 end -->
+    <!-- 面板 start -->
+    <div class="panel panel_access">
+        <div class="panel-header">图文组合列表</div>
+        <div class="panel-body">
+            <a class="item item-thumb item-access" href="javascript:;">
+                <div class="thumb thumb-xs">
+                    <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-01.jpg" alt="图片">
+                </div>
+                <div class="text flex-wrap direction-column space-top">
+                    <h4 class="title text-ellipsis">垂直居中</h4>
+                    <p class="desc">交叉轴上如何对齐，对齐方式与交叉轴的方向有关。</p>
+                </div>
+            </a>
+            <a class="item item-thumb item-access" href="javascript:;">
+                <div class="thumb thumb-xs">
+                    <img class="lazy" src="images/placeholder-thumb.png" data-original="uploadfiles/pic-02.jpg" alt="图片">
+                </div>
+                <div class="text flex-wrap direction-column justify-content-space-between space-top">
+                    <h4 class="title text-ellipsis">垂直居中</h4>
+                    <p class="desc">交叉轴上如何对齐，对齐方式与交叉轴的方向有关。</p>
+                </div>
+            </a>
+        </div>
+        <div class="panel-footer">
+            <a class="item vertical item-access item-link" href="javascript: void(0);">
+                <div class="item-body">查看更多</div>
+                <div class="item-footer"></div>
+            </a>
+        </div>
+    </div>
+    <!-- 面板 end -->
+    <!-- 表单预览 start -->
+    <div class="item-title">表单预览</div>
+    <div class="form-preview">
+        <div class="form-preview-header">
+            <label class="form-preview-label">付款金额</label>
+            <span class="form-preview-value text-danger"><small>¥</small><strong class="text-normal">2400.00</strong></span>
+        </div>
+        <div class="form-preview-body">
+            <div class="form-preview-item">
+                <label class="form-preview-label">商品</label>
+                <span class="form-preview-value">华为荣耀V10</span>
+            </div>
+            <div class="form-preview-item">
+                <label class="form-preview-label">规格</label>
+                <span class="form-preview-value">全网通 标配版 4GB+64GB 幻夜黑 移动联通电信4G全面屏手机 双卡双待</span>
+            </div>
+            <div class="form-preview-item">
+                <label class="form-preview-label">功能备注</label>
+                <span class="form-preview-value">AI场景识别、人像模式、延时摄影、慢动作、滤镜、水印、文档校正、大光圈录像、定时拍照、声控拍照、笑脸抓拍、熄屏快拍</span>
+            </div>
+        </div>
+        <div class="form-preview-footer">
+            <a class="form-preview-btn form-preview-btn-default" href="javascript:">辅助操作</a>
+            <button type="submit" class="form-preview-btn form-preview-btn-primary" href="javascript:">操作</button>
+        </div>
+    </div>
+    <!-- 表单预览 end -->
+
+    <script src="js/zepto.min.js"></script>
+    <script src="js/zepto.picLazyLoad.min.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function () {
+            //延迟加载
+            $('img.lazy').picLazyLoad();
+            //切换视图
+            $('#changeViewMode').on('click', function () {
+                var $targetObj = $('#viewWrap');
+                if ($targetObj.hasClass('view-horizontal')) {
+                    $(this).attr('class', 'iconfont-modeimage');
+                    $targetObj.removeClass('view-horizontal');
+                } else {
+                    $(this).attr('class', 'iconfont-modelist');
+                    $targetObj.addClass('view-horizontal');
+                }
+            });
+        });
+        //]]>
+    </script>
+</body>
+
+</html>

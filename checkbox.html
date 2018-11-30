@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="fullpage">
+    <head>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="author" content="lonq">
+        <meta name="copyright" content=" ">
+        <title>表单</title>
+        <link href="css/global.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/iconfont/iconfont.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrap padding">
+            多选
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="checkbox1" name="checkbox" value="1"> A
+                </label>
+                <label>
+                    <input type="checkbox" id="checkbox2" name="checkbox" value="2"> B
+                </label>
+                <label>
+                    <input type="checkbox" id="checkbox3" name="checkbox" value="3"> C
+                </label>
+                <label>
+                    <input type="checkbox" id="checkbox4" name="checkbox" value="4"> D
+                </label>
+            </div>
+            单选
+            <div class="radio">
+                <label>
+                    <input type="radio" id="radio1" name="radio" value="1"> A
+                </label>
+                <label>
+                    <input type="radio" id="radio2" name="radio" value="2"> B
+                </label>
+                <label>
+                    <input type="radio" id="radio3" name="radio" value="3"> C
+                </label>
+                <label>
+                    <input type="radio" id="radio4" name="radio" value="4"> D
+                </label>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+            var checkboxStr = '1, 2, 3';
+            $(checkboxStr.split(',')).each(function (i,dom){
+                $('.checkbox :checkbox[value='+dom+']').prop('checked',true);
+            });
+            var radioStr = '3';
+            $(radioStr.split(',')).each(function (i,dom){
+                $('.radio :radio[value='+dom+']').prop('checked',true);
+            });
+        });
+        //]]>
+        </script>
+    </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="fullpage">
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="author" content="lonq">
+		<meta name="copyright" content=" ">
+		<title>菜单</title>
+		<link href="css/global.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/iconfont/iconfont.css" rel="stylesheet">
+		<link href="js/Swiper-3.3.1/dist/css/swiper.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="wrap">
+
+			<h4 class="padding text-primary">菜单</h4>
+			<!-- 筛选 -->
+			<ul id="myDropdown" class="navbar-nav navbar-nav4">
+				<li class="dropdown">
+					<a id="dLabel1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span>类别</span>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="dLabel1">
+						<li><a href="#">子菜单一</a></li>
+						<li><a href="#">子菜单一</a></li>
+						<li><a href="#">子菜单一</a></li>
+						<li><a href="#">子菜单一</a></li>
+						<li><a href="#">子菜单一</a></li>
+						<li><a href="#">子菜单一</a></li>
+						<li><a href="#">子菜单一</a></li>
+						<li><a href="#">子菜单一</a></li>
+						<li><a href="#">子菜单一</a></li>
+						<li><a href="#">子菜单一</a></li>
+					</ul>
+				</li>
+				<li role="presentation" class="dropdown">
+					<a id="dLabel2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						购买方式
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="dLabel2">
+						<li><a href="#">子菜单二</a></li>
+						<li><a href="#">子菜单二</a></li>
+					</ul>
+				</li>
+				<li role="presentation" class="dropdown">
+					<a id="dLabel3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						价格
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="dLabel3">
+						<li><a href="#">子菜单三</a></li>
+						<li><a href="#">子菜单三</a></li>
+					</ul>
+				</li>
+				<li role="presentation" class="dropdown">
+					<a id="dLabel4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						时间
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="dLabel4">
+						<li><a href="#">子菜单四</a></li>
+						<li><a href="#">子菜单四</a></li>
+					</ul>
+				</li>
+			</ul>
+			<!-- 筛选 end -->
+
+			<h4 class="padding text-primary">菜单</h4>
+			<!-- 选择菜单1 -->
+			<div class="menu-nav margin-top">
+				<div class="menu-wrap">
+					<ul class="menu-nav-list">
+						<li class="active"><a href="#"><span>菜单一</span></a></li>
+						<li><a href="#"><span>菜单二</span></a></li>
+						<li><a href="#"><span>菜单三</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- 选择菜单1 end -->
+
+			<!-- 选择菜单2 -->
+			<h4 class="padding text-primary">菜单</h4>
+			<div class="menu-nav menu-nav-block margin-vertical">
+				<div class="menu-wrap">
+					<ul class="menu-nav-list">
+						<li class="active"><a href="#"><span>菜单测试</span></a></li>
+						<li><a href="#"><span>菜单测试</span></a></li>
+						<li><a href="#"><span>菜单测试</span></a></li>
+						<li><a href="#"><span>菜单测试</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- 选择菜单2 end -->
+
+			<!-- 标签页 -->
+			<h4 class="padding text-primary">菜单</h4>
+			<div class="btn-group btn-group-sm flex-wrap padding">
+				<a href="#" class="col btn btn-primary btn-primary-line active">选项一</a>
+				<a href="#" class="col btn btn-primary btn-primary-line">选项二</a>
+				<a href="#" class="col btn btn-primary btn-primary-line">选项三</a>
+			</div>
+
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap/js/bootstrap.min.js"></script>
+		<script src="js/common.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		$(function(){
+			//顶部弹出菜单
+			$('.dropdown > a').dropdown();
+			//顶部弹出子菜单
+			$('.dropdown-menu li').click(function () {
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+		});
+		//关闭层
+		function closePopBox(selector){
+			var contentWrap = $(selector),
+					selectorName = 'actionsheet-toggle';
+			contentWrap.find('.backdrop').removeClass('backdrop-toggle');
+			contentWrap.find('.content').removeClass(selectorName).css('bottom', '0');
+			$('html, body').removeClass('overflow-hidden');
+		}
+		//]]>
+		</script>
+	</body>
+</html>

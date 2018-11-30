@@ -1,0 +1,56 @@
+[
+	{
+		"catID": "1",
+		"top": "0",
+		"title": "习近平与金正恩就《中朝友好合作互助条约》签署55周年互致贺电",
+		"linkUrl": "groups-detail.html",
+		"thumb": "uploadfiles/pic-06.jpg",
+		"price": "300",
+		"portion": "2"
+	},
+	{
+		"catID": "2",
+		"top": "1",
+		"title": "习近平与金正恩",
+		"linkUrl": "groups-detail.html",
+		"thumb": "uploadfiles/pic-06.jpg",
+		"price": "3000.23",
+		"portion": "6"
+	},
+	{
+		"catID": "3",
+		"top": "1",
+		"title": "习近平与金正恩就《中朝友好合作互助条约》签署55周年互致贺电",
+		"linkUrl": "groups-detail.html",
+		"thumb": "uploadfiles/pic-06.jpg",
+		"price": "30",
+		"portion": "8"
+	},
+	{
+		"catID": "4",
+		"top": "1",
+		"title": "习近平与金正恩",
+		"linkUrl": "groups-detail.html",
+		"thumb": "uploadfiles/pic-06.jpg",
+		"price": "80.56",
+		"portion": "10"
+	},
+	{
+		"catID": "5",
+		"top": "1",
+		"title": "习近平与金正恩就《中朝友好合作互助条约》签署55周年互致贺电",
+		"linkUrl": "groups-detail.html",
+		"thumb": "uploadfiles/pic-06.jpg",
+		"price": "80.56",
+		"portion": "10"
+	},
+	{
+		"catID": "6",
+		"top": "1",
+		"title": "习近平与金正恩就《中朝友好合作互助条约》签署55周年互致贺电",
+		"linkUrl": "groups-detail.html",
+		"thumb": "uploadfiles/pic-06.jpg",
+		"price": "80.56",
+		"portion": "10"
+	}
+]

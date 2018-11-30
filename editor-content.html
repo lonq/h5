@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="author" content="lonq">
+        <meta name="copyright" content=" ">
+        <title>从编辑器读取正文内容</title>
+        <link href="css/global.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="editor-box">
+            <h1 style="text-align: center;color: #f00;">标题</h1>
+            <img src="uploadfiles/pic-01.jpg" style="border: 10px solid #f00;" width="1750" height="563" border="0" alt="">
+            <img src="uploadfiles/pic-02.jpg" style="border: 10px solid #f00;" width="750" height="563" border="0" alt="">
+            <p>就是你可以往HTML标签上添加任意以 "data-"开头的属性,这些属性页面上是不显示...使用jQuery的.data()方法来访问这些"data-*" 属性。其中一个方法就是...</p>
+            <img src="uploadfiles/pic-03.jpg" style="border: 10px solid #f00;" width="750" height="563" border="0" alt="">
+            <img src="uploadfiles/pic-04.jpg" style="border: 10px solid #f00;" width="750" height="563" border="0" alt="">
+            <img src="uploadfiles/pic-05.jpg" style="border: 10px solid #f00;" width="750" height="563" border="0" alt="">
+            <img src="uploadfiles/pic-06.jpg" style="border: 10px solid #f00;" width="750" height="563" border="0" alt="">
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.lazyload.min.js"></script>
+        <script src="js/common.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+            //响应式图片
+            $('.editor-box img').each(function (i) {
+                var $t = $(this);
+                var placeholder = 'images/placeholder.gif';
+                var img = $t[0].src;
+                //自适应图片
+                $t.removeAttr('style width height').addClass('img-responsive center-block');
+                if (i>2) {
+                    //延迟加载
+                    $t.attr({'src': placeholder, 'data-original': img}).lazyload({effect: 'fadeIn'});
+                }
+            });
+        });
+        //]]>
+        </script>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+<!--         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> -->
+        <meta name="author" content="lonq">
+        <meta name="copyright" content=" ">
+        <title>焦点图、滚动图片、消息提示示例</title>
+        <script src="js/flexible/flexible_css.js"></script>
+        <script src="js/flexible/flexible.js"></script>
+        <link href="css/global.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="list">
+            <img class="lazy img-responsive center-block" src="images/placeholder-banner.png" data-original="uploadfiles/pic-01.jpg" alt="图片">
+            <img class="lazy img-responsive center-block" src="images/placeholder-banner.png" data-original="uploadfiles/sell-course.png" alt="图片">
+            <img class="lazy img-responsive center-block" src="images/placeholder-banner.png" data-original="uploadfiles/affix.jpg" alt="图片">
+            <img class="lazy img-responsive center-block" src="images/placeholder-banner.png" data-original="uploadfiles/pic-09.jpg" alt="图片">
+            <img class="lazy img-responsive center-block" src="images/placeholder-banner.png" data-original="uploadfiles/pic-03.jpg" alt="图片">
+            <img class="lazy img-responsive center-block" src="images/placeholder-banner.png" data-original="uploadfiles/pic-04.jpg" alt="图片">
+            <img class="lazy img-responsive center-block" src="images/placeholder-banner.png" data-original="uploadfiles/pic-05.jpg" alt="图片">
+            <img class="lazy img-responsive center-block" src="images/placeholder-banner.png" data-original="uploadfiles/pic-06.jpg" alt="图片">
+        </div>
+
+<!--         <script src="js/jquery.min.js"></script> -->
+        <script src="js/zepto.min.js"></script>
+<!--         <script src="js/jquery.lazyload.min.js"></script> -->
+        <script src="js/zepto.picLazyLoad.min.js"></script>
+        <script src="js/common.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+            //延迟加载
+//            $('img.lazy').lazyload({effect: 'fadeIn'});
+            //延迟加载
+            $('img.lazy').picLazyLoad();
+        });
+        //]]>
+        </script>
+    </body>
+</html>
