@@ -1,130 +1,322 @@
-//
-// List groups
-// --------------------------------------------------
-
-
-// Base class
-//
-// Easily usable on <ul>, <ol>, or <div>.
-
-.list-group {
-  // No need to set list-style: none; since .list-group-item is block level
-  margin-bottom: 20px;
-  padding-left: 0; // reset padding because ul and ol
-}
-
-
-// Individual list items
-//
-// Use on `li`s or `div`s within the `.list-group` parent.
-
-.list-group-item {
+//通用列表
+.list {
   position: relative;
-  display: block;
-  padding: 10px 15px;
-  // Place the border on the list items and negative margin up for better styling
-  margin-bottom: -1px;
-  background-color: @list-group-bg;
-  border: 1px solid @list-group-border;
-
-  // Round the first and last items
-  &:first-child {
-    .border-top-radius(@list-group-border-radius);
+  z-index: 1;
+  line-height: 1.42857143;
+  &+.list {
+    margin-top: 10px;
   }
-  &:last-child {
-    margin-bottom: 0;
-    .border-bottom-radius(@list-group-border-radius);
+  &:before,
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 1px;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
   }
-}
-
-
-// Interactive list items
-//
-// Use anchor or button elements instead of `li`s or `div`s to create interactive items.
-// Includes an extra `.active` modifier class for showing selected items.
-
-a.list-group-item,
-button.list-group-item {
-  color: @list-group-link-color;
-
-  .list-group-item-heading {
-    color: @list-group-link-heading-color;
+  &:before {
+    top: 0;
+    border-top: 1px solid #dcdcdc;
   }
-
-  // Hover state
-  &:hover,
-  &:focus {
+  &:after {
+    bottom: 0;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  a.item {
+    &:hover,
+    &:active,
+    &:focus,
+    &.active {
+      text-decoration: none;
+    }
+    &:active,
+    &.active {
+      background-color: #eee;
+    }
+  }
+  .item {
+    position: relative;
+    padding: 11px 15px;
+    color: #333;
+    background-color: rgb(255,255,255);
     text-decoration: none;
-    color: @list-group-link-hover-color;
-    background-color: @list-group-hover-bg;
+    overflow: hidden;
+    &:before {
+      content: " ";
+      position: absolute;
+      left: 0;
+      margin-left: 15px;
+      margin-right: 15px;
+      width: -webkit-calc(~"100% - 15px * 2");
+      width: calc(~"100% - 15px * 2");
+      height: 1px;
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      -webkit-transform: scaleY(.5);
+      transform: scaleY(.5);
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    &:before {
+      top: 0;
+      border-top: 1px solid #dcdcdc;
+    }
+    &:first-child {
+      margin-top: 1px;
+      &:before {
+        display: none;
+      }
+    }
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+    &.vertical {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    &.horizontal {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      justify-content: center;
+    }
+    &.item-divider {
+      padding: 5px 15px;
+      font-size: 14px;
+      background-color: #f5f5f5;
+      color: #999;
+    }
+    h3 {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      font-size: inherit;
+    }
+    &.item-icon-left {
+      padding: 8px 15px;
+      .icon {
+        margin-right: 10px;
+        font-size: 20px;
+        font-style: normal;
+      }
+      .icon-accessory {
+        &:after {
+          content: " ";
+          display: inline-block;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          height: 10px;
+          width: 10px;
+          border-width: 1px 1px 0 0;
+          border-color: #c8c8cd;
+          border-style: solid;
+          margin-left: .3em;
+        }
+      }
+    }
+    &.item-button-right {
+      padding: 7px 15px;
+      .btn {
+        margin-left: 10px;
+        padding: 6px 10px;
+        line-height: 1.2;
+      }
+    }
+    p {
+      font-size: 14px;
+    }
+    &.item-toggle {
+      padding: 10px 15px;
+    }
+  } //item
+}
+//卡片列表
+.list {
+  &.card {
+    .item {
+      h2 {
+        margin: 0 0 10px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+      }
+      .thumbnail {
+        img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+        }
+      }
+      &.item-thumbnail-right {
+        .content {
+          .thumbnail {
+            margin: 0 0 0 15px;
+          }
+        }
+      }
+      .content {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        min-width: 0;
+        word-wrap: break-word;
+        overflow: hidden;
+        .thumbnail {
+          margin: 0 15px 0 0;
+          width: 40%;
+          &.thumbnail-xs {
+            width: 30%;
+          }
+          &.thumbnail-sm {
+            width: 35%;
+          }
+          &.thumbnail-md {
+            width: 40%;
+          }
+          &.thumbnail-lg {
+            width: 45%;
+          }
+        }
+        .text {
+          -webkit-box-flex: 1;
+          -webkit-flex: 1;
+          -ms-flex: 1;
+          flex: 1;
+          min-width: 0;
+          h4 {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 16px;
+            font-weight: 400;
+          }
+          p {
+            font-size: 14px;
+            color: #999;
+            &+p {
+              margin-top: 5px;
+            }
+          }
+          .margin-top {
+            margin-top: 5px;
+          }
+          &.locate {
+            position: relative;
+            .bottom-row {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              margin-bottom: 0;
+              width: 100%;
+            }
+          }
+        } //text
+      } //content
+      .margin-top {
+        margin-top: 10px;
+      }
+    } //item
+  } //card
+}
+//头像列表
+.list {
+  &.card {
+    .item {
+      &.item-avatar {
+        &+.item-avatar {
+          margin: -1px 0 0;
+        }
+        h2 {
+          margin: 0 0 7.5px;
+          padding: 0 0 7.5px;
+          font-size: 14px;
+          font-weight: 400;
+          color: #666;
+          border-bottom: 1px solid #dcdcdc;
+        }
+        .content {
+          .avatar {
+            margin: 0 20px 0 0;
+            width: 45px;
+            height: 45px;
+            .label {
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              margin-left: -15px;
+              z-index: 2;
+            }
+            img {
+              margin: 0 auto;
+              display: block;
+              max-width: 100%;
+              height: auto;
+              text-align: center;
+              border: 1px solid #dcdcdc;
+              -webkit-border-radius: 50%;
+              border-radius: 50%;
+            }
+          } //avatar
+          .text {
+            p {
+              margin-top: 0;
+            }
+          } //text
+        } //content
+      } //item-avatar
+    } //item
+  } //card
+}
+//加载更多
+.loadmore {
+  margin: 10px auto;
+  width: 65%;
+  line-height: 1;
+  font-size: 14px;
+  text-align: center;
+  &.loadmore-line {
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    .loadmore-tips {
+      display: inline-block;
+      position: relative;
+      top: -8px;
+      padding: 0 10px;
+      color: #999;
+      vertical-align: middle;
+      background-color: @body-bg;
+    }
   }
 }
-
-button.list-group-item {
-  width: 100%;
-  text-align: left;
-}
-
-.list-group-item {
-  // Disabled state
-  &.disabled,
-  &.disabled:hover,
-  &.disabled:focus {
-    background-color: @list-group-disabled-bg;
-    color: @list-group-disabled-color;
-    cursor: @cursor-disabled;
-
-    // Force color to inherit for custom content
-    .list-group-item-heading {
-      color: inherit;
-    }
-    .list-group-item-text {
-      color: @list-group-disabled-text-color;
-    }
+//返回顶部
+.affix {
+  &.affix-back-to-top {
+    right: 10px;
+    bottom: 50px;
+    z-index: 2;
+    width: 40px;
+    height: auto;
   }
-
-  // Active class on item itself, not parent
-  &.active,
-  &.active:hover,
-  &.active:focus {
-    z-index: 2; // Place active items above their siblings for proper border styling
-    color: @list-group-active-color;
-    background-color: @list-group-active-bg;
-    border-color: @list-group-active-border;
-
-    // Force color to inherit for custom content
-    .list-group-item-heading,
-    .list-group-item-heading > small,
-    .list-group-item-heading > .small {
-      color: inherit;
-    }
-    .list-group-item-text {
-      color: @list-group-active-text-color;
-    }
+  .back-to-top {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid @gray-lighter;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,.7);
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IuWbvuWxgl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjQwcHgiIGhlaWdodD0iNDBweCIgdmlld0JveD0iMCAwIDQwIDQwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA0MCA0MCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cmVjdCB4PSI5LjUiIHk9IjkuNSIgZmlsbD0iIzk5OTk5OSIgd2lkdGg9IjIxIiBoZWlnaHQ9IjEiLz4NCgk8cG9seWdvbiBmaWxsPSIjOTk5OTk5IiBwb2ludHM9IjIxLDE0LjUgMjAsMTMuNjU2IDE5LDE0LjUgOC45MjUsMjIuMzE3IDkuNDI1LDIzLjE4MyAxOS41LDE1LjM2NiAxOS41LDMwLjUgMjAuNSwzMC41IA0KCQkyMC41LDE1LjM2NiAzMC41NzUsMjMuMTgzIDMxLjA3NSwyMi4zMTcgCSIvPg0KPC9nPg0KPC9zdmc+DQo=");
+    background-repeat: no-repeat;
+    background-size: contain;
   }
-}
-
-
-// Contextual variants
-//
-// Add modifier classes to change text and background color on individual items.
-// Organizationally, this must come after the `:hover` states.
-
-.list-group-item-variant(success; @state-success-bg; @state-success-text);
-.list-group-item-variant(info; @state-info-bg; @state-info-text);
-.list-group-item-variant(warning; @state-warning-bg; @state-warning-text);
-.list-group-item-variant(danger; @state-danger-bg; @state-danger-text);
-
-
-// Custom content options
-//
-// Extra classes for creating well-formatted content within `.list-group-item`s.
-
-.list-group-item-heading {
-  margin-top: 0;
-  margin-bottom: 5px;
-}
-.list-group-item-text {
-  margin-bottom: 0;
-  line-height: 1.3;
 }

@@ -1,367 +1,475 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="author" content="lonq">
-    <meta name="copyright" content=" ">
-    <title>卡片</title>
-    <link href="css/global.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="js/Swiper-3.3.1/dist/css/swiper.min.css" rel="stylesheet">
-    <link href="css/iconfont/iconfont.css" rel="stylesheet">
-    <style type="text/css">
-        body {
-            background-color: #f9f9f9;
-        }
-
-        .header {
-            position: fixed;
-            top: 0;
-            z-index: 10;
-            width: 100%;
-            height: 148px;
-            background-color: #fff;
-        }
-
-        .tab {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            height: 48px;
-            line-height: 48px;
-            width: 100%;
-            border-bottom: 1px solid #dcdcdc;
-        }
-
-        .tab li {
-            flex: 1;
-            min-width: 0;
-            color: #666;
-            text-align: center;
-            background-color: #fff;
-        }
-
-        .tab li.active {
-            margin-bottom: -1px;
-            border-bottom: 2px solid #1edbb5;
-        }
-
-        .tab a {
-            color: #666;
-        }
-
-        .tab li.active a {
-            color: #1edbb5;
-        }
-
-        .pull-down {
-            text-align: center;
-        }
-
-        .pull-down dl,
-        .pull-down dl>dt,
-        .pull-down dl>dd {
-            list-style: none;
-            margin: 0;
-        }
-
-        .pull-down dl>dd>h4,
-        .pull-down dl>dd>p {
-            text-align: left;
-        }
-
-        .pull-down dl {
-            display: -webkit-flex;
-            display: flex;
-            padding: 10px 0;
-            height: 70px;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-align-items: center;
-            align-items: center;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        .pull-down dl>dt {
-            width: 50px;
-            height: 50px;
-        }
-
-        .pull-down dl>dt>img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-            -webkit-transform: scale(0);
-            transform: scale(0);
-        }
-
-        .pull-down dl>dd {
-            margin-left: 10px;
-            color: #333;
-        }
-
-        .pull-down dl>dd>h4 {
-            font-size: 15px;
-            color: #777;
-        }
-
-        .pull-down dl>dd>p {
-            font-size: 14px;
-            color: #999;
-        }
-
-        .pull-up {
-            padding: 10px;
-            font-size: 14px;
-            text-align: center;
-            color: #999;
-        }
-
-        .swiper-container {
-            margin-top: 148px;
-            overflow: visible;
-        }
-
-        .swiper-container,
-        .w {
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            height: calc(100vh - 148px);
-        }
-
-        .swiper-slide {
-            height: auto;
-        }
-
-        .list+.list {
-            margin-top: 0;
-        }
-
-        .list .item:first-child {
-            margin-top: 0;
-        }
-
-        .list .item:active {
-            background-color: #ececec;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="header">
-        <img class="ads img-responsive center-block" src="uploadfiles/sell-course.png">
-        <ul class="tab">
-            <li class="active"><a href="javascript:;">菜单一</a></li>
-            <li><a href="javascript:;">菜单二</a></li>
-            <li><a href="javascript:;">菜单三</a></li>
-        </ul>
-    </div>
-    <div class="swiper-container">
-        <div class="swiper-wrapper w">
-            <div class="swiper-slide d">
-                <div class="pull-down" style="display: none;">
-                    <dl>
-                        <dt><img src="uploadfiles/top-ads.gif"></dt>
-                        <dd>
-                            <h4>这是个标题啊</h4>
-                            <p>下拉更新</p>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="swiper-container2">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide list"></div>
-                        <div class="swiper-slide list"></div>
-                        <div class="swiper-slide list"></div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="author" content="lonq">
+        <meta name="copyright" content=" ">
+        <title>swiper上拉/下拉</title>
+        <link href="css/style.css" rel="stylesheet">
+        <link href="plugins/Swiper-4.0.3/dist/css/swiper.min.css" rel="stylesheet">
+        <link href="plugins/dialog2-master/dist/css/dialog.css" rel="stylesheet">
+        <style type="text/css">
+            .tabs-wrap {
+                position: fixed;
+                top: 0;
+                z-index: 10;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 45px;
+                line-height: 43px;
+                border-bottom: 1px solid #dcdcdc;
+                background-color: #fff;
+            }
+            .swiper-tabs {
+                width: calc(100% - 44px);
+            }
+            .more {
+            	position: absolute;
+            	top: 0;
+            	right: 0;
+            	z-index: 10;
+                width: 44px;
+                height: 45px;
+                text-align: center;
+                color: #666;
+                border-bottom: 1px solid #dcdcdc;
+                background-color: #fff;
+            }
+            .more a {
+            	display: block;
+            	margin: 12px 0;
+                width: 44px;
+                height: 20px;
+                line-height: 20px;
+                text-align: center;
+                color: #666;
+                border-left: 1px solid #dcdcdc;
+            }
+            .more a:hover,
+            .more a:focus,
+            .more a:active {
+                color: #666;
+            }
+            .tabs-wrap ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            .tabs-wrap ul li {
+            	width: auto;
+                color: #666;
+                text-align: center;
+                background-color: #fff;
+            }
+            .tabs-wrap ul li:first-child {
+            	margin-left: 15px;
+            }
+            .tabs-wrap ul li:last-child {
+            	margin-right: 15px;
+            }
+            .tabs-wrap ul li.active {
+                margin-bottom: -1px;
+                border-bottom: 2px solid #1edbb5;
+            }
+            .tabs-wrap ul li a {
+                color: #666;
+            }
+            .tabs-wrap ul li.active a {
+                color: #1edbb5;
+            }
+            .swiper-content {
+                padding-top: 44px;
+                overflow: visible;
+            }
+            .swiper-content,
+            .swiper-content>.swiper-wrapper {
+                height: calc(100vh);
+            }
+            .swiper-slide {
+                height: auto;
+            }
+            .list + .list {
+                margin-top: 0;
+            }
+            .list .item:first-child {
+                margin-top: 0;
+            }
+            .list .item:active {
+                background-color: #ececec;
+            }
+            .pull-down {
+            	position: absolute;
+            	top: -70px;
+            	z-index: 9;
+            	width: 100%;
+            	height: 70px;
+                text-align: center;
+            }
+            .pull-down dl,
+            .pull-down dl>dt,
+            .pull-down dl>dd {
+                list-style: none;
+                margin: 0;
+            }
+            .pull-down dl>dd>h4,
+            .pull-down dl>dd>p {
+                text-align: left;
+            }
+            .pull-down dl {
+                display: -webkit-flex;
+                display: flex;
+                padding: 10px 0;
+                height: inherit;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-align-items: center;
+                align-items: center;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            .pull-down dl>dt {
+                width: 50px;
+                height: 50px;
+            }
+            .pull-down dl>dt>img {
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                height: auto;
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            .pull-down dl>dd {
+                margin-left: 10px;
+                color: #333;
+            }
+            .pull-down dl>dd>h4 {
+                font-size: 15px;
+                color: #777;
+            }
+            .pull-down dl>dd>p {
+                font-size: 14px;
+                color: #999;
+            }
+            .pull-up {
+                padding: 10px;
+                font-size: 14px;
+                text-align: center;
+                color: #999;
+            }
+        </style>
+    </head>
+    <body>
+		<div class="tabs-wrap">
+			<div class="swiper-tabs">
+				<ul class="swiper-wrapper">
+					<li class="swiper-slide"><a href="#">推荐</a></li>
+					<li class="swiper-slide"><a href="#">小升初</a></li>
+					<li class="swiper-slide"><a href="#">中考</a></li>
+					<li class="swiper-slide"><a href="#">高考</a></li>
+					<li class="swiper-slide"><a href="#">亲子</a></li>
+					<li class="swiper-slide"><a href="#">亲孙</a></li>
+					<li class="swiper-slide"><a href="#">亲孙</a></li>
+				</ul>
+			</div>
+			<div class="more">
+				<a href="javascript:;"><i class="iconfont iconfont-angledownfine"></i></a>
+			</div>
+		</div>
+        <div class="swiper-content">
+            <div class="swiper-wrapper w">
+                <div class="swiper-slide">
+                    <div class="pull-down" style="display: none;">
+                        <dl>
+                            <dt><img src="uploadfiles/top-ads.gif"></dt>
+                            <dd>
+                                <h4>这是个标题啊</h4>
+                                <p>下拉更新</p>
+                            </dd>
+                        </dl>
                     </div>
+                    <div class="swiper-content-children">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide list card"></div>
+                            <div class="swiper-slide list card"></div>
+                            <div class="swiper-slide list card"></div>
+                            <div class="swiper-slide list card"></div>
+                            <div class="swiper-slide list card"></div>
+                            <div class="swiper-slide list card"></div>
+                            <div class="swiper-slide list card"></div>
+                        </div>
+                    </div>
+                    <div class="pull-up"><i class="iconfont iconfont-loading animation-spinner"></i> 加载中…</div>
+                    <!--<div id="spinner" class="text-center">loading...</div>-->
                 </div>
-                <div class="pull-up">上拉加载更多</div>
             </div>
         </div>
-        <div class="swiper-scrollbar"></div>
-    </div>
-
-    <script src="js/zepto.min.js"></script>
-    <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
-    <script type="text/javascript">
+        <div class="affix affix-back-to-top">
+    		<a class="back-to-top js-back-to-top" href="javascript: void(0);" title="回到顶部"></a>
+        </div>
+        <script src="plugins/zepto.min.js"></script>
+        <script src="plugins/Swiper-4.0.3/dist/js/swiper.min.js"></script>
+        <script src="plugins/dialog2-master/dist/js/dialog.min.js"></script>
+        <script type="text/javascript">
         //<![CDATA[
-        $(function () {
-            var _ads = $('.ads');
-            var _adsH = _ads.height();
-            var _tab = $('.tab');
-            var _tabH = _tab.height();
-            var _header = $('.header');
-            var _headerH = _header.height();
-            var _swiperObj = $('.swiper-container');
-
-            var loadFlag = true;
+        $(function(){
+        	var swiperTabs,swiperContent,swiperContentChildren;
+            var pullDownFlag,pullUpFlag;
+            var listWrap = $('.list'); //列表容器
             var pullDown = $('.pull-down');
             var pullUp = $('.pull-up');
-            var mySwiper = new Swiper('.swiper-container', {
-                direction: 'vertical',
-                // scrollbar: '.swiper-scrollbar',
-                slidesPerView: 'auto',
-                mousewheelControl: true,
-                freeMode: true,
-                onTouchMove: function (swiper) { //手动滑动中触发
-                    if (mySwiper.translate < 0) {
-                        showAds(0);
-                    }
-                    positionJudge();
-                },
-                onTouchEnd: function (swiper) {
-                    if (mySwiper.translate > 0) {
-                        showAds(1);
-                    }
-                    pullDownAction();
-                    pullUpAction();
-                    return false;
-                }
-            });
-            var mySwiper2 = new Swiper('.swiper-container2', {
-                onTransitionEnd: function (swiper) {
-                    //$('.w').css('transform', 'translate3d(0px, 0px, 0px)')
-                    $('.swiper-container2 .swiper-slide-active').css('height', 'auto').siblings('.swiper-slide').css('height', '0px');
-                    mySwiper.update();
-                    $('.tab li').eq(mySwiper2.activeIndex).addClass('active').siblings('li').removeClass('active');
-                    getData(mySwiper2.activeIndex);
-                }
-            });
-            $('.tab a').click(function () {
-                $parent = $(this).parent();
-                $parent.addClass('active').siblings().removeClass('active');
-                mySwiper2.slideTo($parent.index(), 500, false)
-                //$('.w').css('transform', 'translate3d(0px, 0px, 0px)')
-                $('.swiper-container2 .swiper-slide-active').css('height', 'auto').siblings('.swiper-slide').css('height', '0px');
-                mySwiper.update();
-                getData($parent.index());
-            });
+            var spinner = $('.spinner');
+            var offsetY = 70; //滑动距离
+            var tmpSlideIndex = 0; //初始激活的索引值
+	        var tabsLen = $('.swiper-tabs>.swiper-wrapper>.swiper-slide').length;
+	        var tabsLi = [];
+			for(var i=0;i<tabsLen;i++){
+			    tabsLi.push(0);
+			};
+            //初始加载数据
+            loaded();
+        	loadData(tmpSlideIndex);
+            tabs('.swiper-tabs','.swiper-tabs .swiper-slide','.swiper-content-children','active',tmpSlideIndex);
+        	//返回顶部
+		    backToTop('.js-back-to-top', 300);
+			//滑动菜单
+			//swiperTabsObj：tab对象
+			//swiperTabsSlideObj：tab下的slide对象
+			//swiperContentChildrenObj：子content对象
+			//activeClassName：active类名
+			//index：初始索引值
+			function tabs(swiperTabsObj,swiperTabsSlideObj,swiperContentChildrenObj,activeClassName,index) {
+				//tab切换
+				swiperTabs = new Swiper(swiperTabsObj, {
+					direction: 'horizontal',
+					initialSlide: index, // 设定初始化时slide的索引
+					slidesPerView: 'auto',
+					spaceBetween : 30,
+					on: {
+						init: function(){
+							$(swiperTabsSlideObj).eq(tmpSlideIndex).addClass(activeClassName).siblings().removeClass(activeClassName);
+						},
+						tap: function(event) {
+							updateTabPosition();
+							swiperContentChildren.slideTo(swiperTabs.clickedIndex);
+						}
+					}
+				});
+	            //content和tab绑定切换
+	            swiperContentChildren = new Swiper(swiperContentChildrenObj, {
+	                on: {
+						transitionEnd: function(swiper){
+                        	var itemLen = listWrap.eq(swiperContentChildren.activeIndex).find('.item').length;
+                        	if (itemLen == 0) {
+								loadData(swiperContentChildren.activeIndex);
+                        	}
+							updateTabPosition();
+        					swiperContent.update();
+		                },
+						slideChangeTransitionEnd: function(swiper){
+							swiperContent.setTranslate(tabsLi[swiperContentChildren.activeIndex]);
+							$('.swiper-content-children .swiper-slide-active').css('height','auto').siblings('.swiper-slide').css('height','0px');
+							swiperContent.update();
+                		}
+	                }
+	            });
+	            //更新tab位置
+				var updateTabPosition = function() {
+					$(swiperTabsSlideObj + '.' + activeClassName).removeClass(activeClassName);
+					var activeTab = $(swiperTabsSlideObj).eq(swiperContentChildren.activeIndex).addClass(activeClassName);
+	                var itemLen = $(swiperTabsSlideObj).length;
+					if (!activeTab.hasClass('swiper-slide-visible')) {
+						if (activeTab.index() > swiperContent.activeIndex) {
+							//var thumbsPerTab = Math.floor(swiperContent.width/activeTab.width()) - 1);
+							var thumbsPerTab = Math.floor(itemLen/2) - 1;
+							swiperTabs.slideTo(activeTab.index() - thumbsPerTab);
+						} else {
+							swiperTabs.slideTo(activeTab.index());
+						}
+					}
+				}
+	        };
+            //返回顶部
+            function backToTop(ele, offset){
+                $(ele).hide();
+                swiperContent.on('transitionStart', function(swiper){
+	                if(swiperContent.translate <= parseInt(-offset)){
+	                    $(ele).show();
+	                }
+                }).on('transitionEnd', function(swiper){
+	                if(swiperContent.translate == 0){
+	                	$(ele).hide();
+	                }
+                });
+			    $(ele).on('touchend', function (swiper){
+					swiperContent.slideTo(swiper.activeIndex);
+			    });
+            };
             //判断滑动位置
-            function showAds(state) {
-                if (state == 0) {
-                    _ads.hide();
-                    _header.css('height', _tabH);
-                    _swiperObj.css('margin-top', _tabH);
-                    $('.swiper-container, .swiper-wrapper.w').css('height', 'calc(100vh - '+ _tabH +'px)');
-                    mySwiper.update();
-                } else if (state == 1) {
-                    _ads.show();
-                    _header.css('height', _adsH + _tabH);
-                    _swiperObj.css('margin-top', _adsH + _tabH);
-                    $('.swiper-container, .swiper-wrapper.w').css('height', 'calc(100vh - '+ (_adsH + _tabH) +'px)');
-                    mySwiper.update();
-                }
-            }
-            //判断滑动位置
-            function positionJudge() {
-                var _viewHeight = $('.swiper-wrapper').get(0).offsetHeight;
-                var _contentHeight = $('.swiper-slide').get(0).offsetHeight;
-                var _scaleVal = mySwiper.translate / pullDown.find('dt').height();
-                console.log(mySwiper.translate);
-                if (mySwiper.translate < 50 && mySwiper.translate > 0) {
+            function positionJudge(){
+                var _viewHeight = $('.swiper-content>.swiper-wrapper').get(0).offsetHeight;
+                var _contentHeight = $('.swiper-content>.swiper-wrapper>.swiper-slide').get(0).offsetHeight;
+                var maxScrollY = _viewHeight - _contentHeight;
+                var dt = pullDown.find('dt').height();
+                var scaleVal = swiperContent.translate / offsetY;
+                if(swiperContent.translate < offsetY && swiperContent.translate > 0){ //判断下拉
                     pullDown.show().find('p').html('下拉更新');
-                    pullDown.find('img').css({
-                        '-webkit-transform': 'scale(' + _scaleVal + ')',
-                        'transform': 'scale(' + _scaleVal + ')'
-                    });
-                } else if (mySwiper.translate > 50) {
-                    pullDown.show().find('p').html('释放更新');
+                    pullDown.find('img').css({'-webkit-transform': 'scale('+ scaleVal +')', 'transform': 'scale('+ scaleVal +')'});
+                }else if(swiperContent.translate > offsetY){ //判断下拉大于指定高度
+                    pullDown.show().find('p').html('放开更新页面');
+                    pullDownFlag = 1;
+                }else if(swiperContent.translate < (maxScrollY + offsetY)){ //判断上拉
+                    pullUp.html('放开执行加载');
+                    pullUpFlag = 1;
                 }
-            }
+            };
+            //执行动作
+            function loaded(){
+                pullDownFlag = 0;
+                pullUpFlag = 0;
+	            swiperContent = new Swiper('.swiper-content', {
+	                direction: 'vertical',
+	                slidesPerView: 'auto',
+	                freeMode: true
+	            });
+                swiperContent.on('touchMove', positionJudge);
+                swiperContent.on('touchMove', pullUpAction);
+                swiperContent.on('touchEnd', pullDownAction);
+                swiperContent.on('transitionEnd', function(){
+			    	tabsLi[swiperContentChildren.activeIndex] = swiperContent.getTranslate();
+                });
+            };
             //下拉更新
-            function pullDownAction() {
-                //下拉更新
-                if (mySwiper.translate >= 50) {
-                    pullDown.show().find('p').html('<i class="iconfont-loading animation-spinner"></i> 更新中...');
-                    pullUp.html('上拉加载更多');
-                    loadFlag = true;
-                    setTimeout(function () {
-                        pullDown.show().find('p').html('更新成功！');
-                        console.log('更新事件');
-                        setTimeout(function () {
-                            pullDown.hide();
-                        }, 500);
-                        pullUp.show(0);
-                        //更新操作
-                        mySwiper.update(); //重新计算高度;
-                    }, 1000);
-                } else if (mySwiper.translate >= 0 && mySwiper.translate < 50) {
-                    pullDown.hide();
-                }
-            }
+            function pullDownAction(){
+                spinner.show();
+                setTimeout(function(){
+	                if(pullDownFlag == 1){
+	                    pullDown.show().find('p').html('<i class="iconfont iconfont-loading animation-spinner"></i> 加载中…');
+	                    updateData(swiperContentChildren.activeIndex);
+	                    pullDownFlag = 0;
+	                    spinner.hide();
+	                    pullDown.hide();
+	                }
+                },1000);
+            };
             //上拉加载
-            function pullUpAction() {
-                var _headerHeight = _tabH;
+            function pullUpAction(){
                 var _viewHeight = $('.swiper-wrapper').get(0).offsetHeight;
                 var _contentHeight = $('.swiper-slide').get(0).offsetHeight;
-                //上拉加载
-                console.log("t." + mySwiper.translate);
-                console.log("vch." + (_viewHeight - _contentHeight + _headerHeight));
-                if (mySwiper.translate <= (_viewHeight - _contentHeight + _headerHeight) && mySwiper.translate < 0) {
-                    console.log(mySwiper.translate + ":" + (_viewHeight - _contentHeight + _headerHeight));
-                    loadFlag = true;
-                    //console.log('已经到达底部！');
-                    if (loadFlag) {
-                        pullUp.html('<i class="iconfont-loading animation-spinner"></i> 加载中...');
-                    } else {
-                        pullUp.html('没有更多啦！');
-                    }
-                    setTimeout(function () {
-                        //加载数据
-                        getData(mySwiper2.activeIndex);
-                        pullUp.html('上拉加载更多');
-                        mySwiper.update(); // 重新计算高度;
-                    }, 400);
-                }
-            }
-            //数据
-            getData(0);
-            function getData(target) {
+                var maxScrollY = _viewHeight - _contentHeight;
+                spinner.show();
+			    setTimeout(function () {
+	            	if(pullUpFlag == 1){
+						pullUp.html('<i class="iconfont iconfont-loading animation-spinner"></i> 加载中…');
+                    	loadData(swiperContentChildren.activeIndex);
+						pullUpFlag = 0;
+	                    spinner.hide();
+	                }
+			    },1000);
+            	//pullUp.html('<div class="loadmore loadmore-line"><span class="loadmore-tips">没有更多了</span></div>');
+            };
+            //更新数据
+            function updateData(target){
                 isAjax = true;
                 $.ajax({
                     type: 'GET',
                     url: 'data/scroll-list.json',
                     timeout: 15000,
                     dataType: 'json',
-                    success: function (reponse) {
+                    beforeSend: function(xhr){
+					    $(document).dialog({
+					        type : 'notice',
+					        infoIcon: 'plugins/dialog2-master/dist/images/icon/loading.gif',
+					        infoText: '加载中...',
+					        autoClose: 100
+					    });
+                    },
+                    success: function(response){
+                        isAjax = false;
+                        var result = [];
+                        var len = response.length;
+                        for (var i = 0; i < len; i++) {
+                            var data = response[i];
+                            result += '<a class="item vertical" href="javascript:;">'+
+                            '<div class="content">'+
+                            '<div class="thumbnail thumbnail-xs">'+
+                            '<img src=' + data.thumb + '>'+
+                            '</div>'+
+                            '<div class="text locate">'+
+                            '<h4 class="title text-ellipsis-2">更新：' + data.title + '</h4>'+
+                            '<p class="bottom-row">' + data.time + '</p>'+
+                            '</div>'+
+                            '</div>'+
+                            '</a>';
+                        }
+                        listWrap.eq(target).prepend(result);
+                		swiperContent.update();
+					    $(document).dialog({
+					        type : 'notice',
+					        infoIcon: 'plugins/dialog2-master/dist/images/icon/success.png',
+					        infoText: '更新了 '+ len +' 条数据',
+					        autoClose: 1500
+					    });
+                    },
+                    complete: function(){
+                		pullDown.find('p').html('下拉更新');
+                    },
+                    error: function(){
+                        pullDown.html('加载失败！');
+                    }
+                });
+            };
+            //加载数据
+            function loadData(target){
+                isAjax = true;
+                $.ajax({
+                    type: 'GET',
+                    url: 'data/scroll-list.json',
+                    timeout: 15000,
+                    dataType: 'json',
+                    beforeSend: function(){
+                        var itemLen = listWrap.eq(target).find('.item').length;
+						if (itemLen == 0) {
+						    $(document).dialog({
+						        type : 'notice',
+						        infoIcon: 'plugins/dialog2-master/dist/images/icon/loading.gif',
+						        infoText: '加载中...',
+						        autoClose: 100
+						    });
+						}
+                    },
+                    success: function(reponse){
                         isAjax = false;
                         var result = [];
                         var len = reponse.length;
                         for (var i = 0; i < len; i++) {
                             var data = reponse[i];
-                            result += '<div class="item vertical item-thumb item-access">' +
-                                    '<div class="thumb">' +
-                                    '<img src=' + data.thumb + ' alt=' + data.title + '>' +
-                                    '</div>' +
-                                    '<div class="text flex-wrap direction-column space-top">' +
-                                    '<h4 class="title text-ellipsis">' + data.title + '</h4>' +
-                                    '<p class="desc">' + data.desc + '</p>' +
-                                    '<ul class="flex-wrap space-left list-unstyled text-xs text-muted">' +
-                                    '<li><i class="icon iconfont-share"></i> 999+</li>' +
-                                    '<li><i class="icon iconfont-commenting"></i> 999+</li>' +
-                                    '</ul>' +
-                                    '</div>' +
-                                    '</div>';
+                            result += '<a class="item vertical" href="javascript:;">'+
+                            '<div class="content">'+
+                            '<div class="thumbnail thumbnail-xs">'+
+                            '<img src=' + data.thumb + '>'+
+                            '</div>'+
+                            '<div class="text locate">'+
+                            '<h4 class="title text-ellipsis-2">' + data.title + '</h4>'+
+                            '<p class="bottom-row">' + data.time + '</p>'+
+                            '</div>'+
+                            '</div>'+
+                            '</a>';
                         }
-                        $('.list').eq(target).append(result);
-                        
-                        //更新操作
-                        mySwiper.update(); //重新计算高度;
+                        listWrap.eq(target).append(result);
+                		swiperContent.update();
+                        pullUp.html('上拉加载更多');
                     },
-                    error: function (xhr, type) {
+                    error: function(){
                         pullUp.html('加载失败！');
                     }
                 });
             };
         });
         //]]>
-    </script>
-</body>
-
+        </script>
+    </body>
 </html>

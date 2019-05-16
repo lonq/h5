@@ -1,37 +1,93 @@
 <!DOCTYPE html>
 <html lang="zh-CN" class="fullpage">
-	<head>
-		<meta charset="utf-8">
-		<meta name="renderer" content="webkit">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<meta name="author" content="lonq">
-		<meta name="copyright" content=" ">
-		<title>根据RGB计算亮度</title>
-		<link href="css/global.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<link href="css/iconfont/iconfont.css" rel="stylesheet">
-	</head>
-	<body>
-		<!-- 亮度计算 start -->
-        <h4 class="padding text-primary">根据RGB计算亮度</h4>
-        <form class="form-horizontal bg-white padding" role="form">
-            <div class="form-group vertical">
-                <label for="inputEmail3" class="control-label">RGB</label>
-                <div class="col">
-                    <input type="text" class="form-control" id="RGB" placeholder="RGB">
-                </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="author" content="lonq">
+        <meta name="copyright" content=" ">
+        <title>根据RGB计算亮度</title>
+        <link href="css/global.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/iconfont/iconfont.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- RGB颜色值转换成十六进制颜色码 start -->
+        <h4 class="padding text-dark">RGB颜色值转换成十六进制颜色码</h4>
+        <div class="bg-white padding">
+            <div class="form-inline">
+                <input class="form-control" name="r1e" value="255" class="rle" maxlength="3" size="3" onKeyPress="getkey(event,0);">
+                <input class="form-control" name="r1e" value="180" class="rle" maxlength="3" size="3" onKeyPress="getkey(event,0);">
+                <input class="form-control" name="r1e" value="0" class="rle" maxlength="3" size="3" onKeyPress="getkey(event,0);">
+                <input class="btn btn-primary" onclick="showRGB()" type="button" value="转换为十六进制" name="button">
             </div>
-            <div class="form-group vertical">
-                <label for="inputEmail3" class="control-label">结果</label>
-                <div class="col">
-                    <p id="result"></p>
-                </div>
+            <ul class="list-inline">
+                <li class="control-label">结果：</li>
+                <li id="color1">&nbsp;</li>
+                <li id="a_mo2"></li>
+            </ul>
+        </div>
+        <!-- RGB颜色值转换成十六进制颜色码 end -->
+        <!-- 十六进制颜色码转换成RGB颜色值 start -->
+        <h4 class="padding text-dark">十六进制颜色码转换成RGB颜色值</h4>
+        <div class="bg-white padding">
+            <div class="form-inline">
+                <input class="form-control" name="rgb2" value="#CC00FF" size="8" maxlength="7" size="10" onKeyPress="getkey(event,1);">
+                <input class="btn btn-primary" onclick="showRGB2()" type="button" value="转换RGB颜色值" name="button">
             </div>
-            <div class="form-group vertical">
-                <input type="reset" class="btn btn-default btn-block" value="重置">
-                <input type="submit" class="btn btn-primary btn-block" value="计算">
-            </div>
-        </form>
-		<!-- 亮度计算 end -->
-	</body>
+            <ul class="list-inline">
+                <li class="control-label">结果：</li>
+                <li id="color2">&nbsp;</li>
+                <li id="a_mo3"></li>
+            </ul>
+        </div>
+        <!-- 十六进制颜色码转换成RGB颜色值 end -->
+        <script src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[
+        function showRGB() {
+            hexcode = "#";
+            for (x = 0; x < 3; x++) {;
+                var n = $("[name='r1e']").eq(x).val();
+                if (n == "") n = "0";
+                if (parseInt(n) != n) return alert("请输入数字！");
+                if (n > 255) return alert("数字在0-255之间！");
+                var c = "0123456789ABCDEF",
+                b = "",
+                a = n % 16;
+                b = c.substr(a, 1);
+                a = (n - a) / 16;
+                hexcode += c.substr(a, 1) + b
+            }
+            $("#color1").css({"width": "30px", "height": "22px", "background-color": hexcode});
+            $("#a_mo2").html(hexcode);
+        }
+        function showRGB2() {
+            var a = $("[name='rgb2']").eq(0).val();
+            if (a.substr(0, 1) == "#") a = a.substring(1);
+            if (a.length != 6) return alert("请输入正确的十六进制颜色码！");
+            $("#color2").css({"width": "30px", "height": "22px", "background-color": "#" + a});
+            a = a.toLowerCase()
+            b = new Array();
+            for (x = 0; x < 3; x++) {
+                b[0] = a.substr(x * 2, 2)
+                b[3] = "0123456789abcdef";
+                b[1] = b[0].substr(0, 1);
+                b[2] = b[0].substr(1, 1);
+                b[20 + x] = b[3].indexOf(b[1]) * 16 + b[3].indexOf(b[2])
+            }
+            $("#a_mo3").html(b[20] + "," + b[21] + "," + b[22]);
+        }
+        function getkey(e, n) {
+            var keynum;
+            if (window.event) keynum = e.keyCode;
+            else if (e.which) keynum = e.which;
+            if (keynum == 13) {
+                if (n == 0) showRGB();
+                else showRGB2();
+            }
+        }
+        //]]>
+        </script>
+    </body>
 </html>

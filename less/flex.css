@@ -1,0 +1,22 @@
+.flex-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.flex-wrap.vertical {
+  -webkit-align-items: center;
+  align-items: center;
+}
+.flex-wrap.horizontal {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.flex-wrap > .col {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  min-width: 0;
+}
+.flex-wrap.no-border > .col .btn {
+  border: 0;
+}

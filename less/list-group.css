@@ -1,0 +1,264 @@
+.list {
+  position: relative;
+  line-height: 1.42857143;
+}
+.list + .list {
+  margin-top: 10px;
+}
+.list:before,
+.list:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  color: #dcdcdc;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.list:before {
+  top: -1px;
+  border-top: 1px solid #dcdcdc;
+}
+.list:after {
+  bottom: -1px;
+  border-bottom: 1px solid #dcdcdc;
+}
+.list a.item:hover,
+.list a.item:active,
+.list a.item:focus,
+.list a.item.active {
+  text-decoration: none;
+}
+.list a.item:active,
+.list a.item.active {
+  background-color: #eee;
+}
+.list .item {
+  position: relative;
+  padding: 11px 15px;
+  color: #333;
+  background-color: #ffffff;
+  text-decoration: none;
+  overflow: hidden;
+}
+.list .item:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: -webkit-calc(100% - 15px * 2);
+  width: calc(100% - 15px * 2);
+  height: 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.list .item:before {
+  top: 0;
+  border-top: 1px solid #dcdcdc;
+}
+.list .item:first-child {
+  margin-top: 1px;
+}
+.list .item:first-child:before {
+  display: none;
+}
+.list .item:last-child:after {
+  display: none;
+}
+.list .item.vertical {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.list .item.horizontal {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.list .item.item-divider {
+  padding: 5px 15px;
+  font-size: 14px;
+  background-color: #f5f5f5;
+  color: #999;
+}
+.list .item h3 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: inherit;
+}
+.list .item.item-icon-left {
+  padding: 8px 15px;
+}
+.list .item.item-icon-left .icon {
+  margin-right: 10px;
+  font-size: 20px;
+  font-style: normal;
+}
+.list .item.item-icon-left .icon-accessory:after {
+  content: " ";
+  display: inline-block;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  height: 10px;
+  width: 10px;
+  border-width: 1px 1px 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  margin-left: .3em;
+}
+.list .item.item-button-right {
+  padding: 7px 15px;
+}
+.list .item.item-button-right .btn {
+  margin-left: 10px;
+  padding: 6px 10px;
+  line-height: 1.2;
+}
+.list .item p {
+  font-size: 14px;
+}
+.list .item.item-toggle {
+  padding: 10px 15px;
+}
+.list.card .item h2 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+.list.card .item .thumbnail img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.list.card .item.item-thumbnail-right .content .thumbnail {
+  margin: 0 0 0 15px;
+}
+.list.card .item .content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+.list.card .item .content .thumbnail {
+  margin: 0 15px 0 0;
+  width: 40%;
+}
+.list.card .item .content .thumbnail.thumbnail-xs {
+  width: 30%;
+}
+.list.card .item .content .thumbnail.thumbnail-sm {
+  width: 35%;
+}
+.list.card .item .content .thumbnail.thumbnail-md {
+  width: 40%;
+}
+.list.card .item .content .thumbnail.thumbnail-lg {
+  width: 45%;
+}
+.list.card .item .content .text {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0;
+}
+.list.card .item .content .text h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+.list.card .item .content .text p {
+  font-size: 14px;
+  color: #999;
+}
+.list.card .item .content .text p + p {
+  margin-top: 5px;
+}
+.list.card .item .content .text .margin-top {
+  margin-top: 5px;
+}
+.list.card .item .content .text.locate {
+  position: relative;
+}
+.list.card .item .content .text.locate .bottom-row {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+.list.card .item .margin-top {
+  margin-top: 10px;
+}
+.list.card .item.item-avatar + .item-avatar {
+  margin: -1px 0 0;
+}
+.list.card .item.item-avatar h2 {
+  margin: 0 0 7.5px;
+  padding: 0 0 7.5px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  border-bottom: 1px solid #dcdcdc;
+}
+.list.card .item.item-avatar .content .avatar {
+  margin: 0 20px 0 0;
+  width: 45px;
+  height: 45px;
+}
+.list.card .item.item-avatar .content .avatar .label {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -15px;
+  z-index: 2;
+}
+.list.card .item.item-avatar .content .avatar img {
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  text-align: center;
+  border: 1px solid #dcdcdc;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.list.card .item.item-avatar .content .text p {
+  margin-top: 0;
+}
+.loadmore-line {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+}
+.loadmore-line.loadmore {
+  margin: 10px auto;
+  width: 65%;
+  line-height: 1;
+  font-size: 14px;
+  text-align: center;
+}
+.loadmore-line.loadmore .loadmore-tips {
+  display: inline-block;
+  position: relative;
+  top: -8px;
+  padding: 0 10px;
+  color: #999;
+  vertical-align: middle;
+}

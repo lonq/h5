@@ -7,7 +7,7 @@
 		<meta name="author" content="lonq">
 		<meta name="copyright" content=" ">
 		<title>H5页面样例</title>
-		<link href="css/global.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
 		<style type="text/css">
 			ol > li {
 				padding: 10px 0;
@@ -22,7 +22,18 @@
 	</head>
 	<body>
 		<div class="padding">
+			<div class="loadmore loadmore-line">
+	            <span class="loadmore-tips">暂无数据</span>
+	        </div>
 			<h3 class="text-center">H5页面样例</h3>
+			<h4 class="text-bold">一、列表类</h4>
+			<ol type="1">
+				<li><a href="swiper-scroll.html">swiper上拉/下拉</a></li>
+				<li><a href="iscroll.html">iscroll上拉/下拉</a></li>
+				<li><a href="list.html">列表</a></li>
+				<li><a href="list-card.html">卡片列表</a></li>
+			</ol>
+			<h4 class="text-bold">二、其他</h4>
 			<ol type="1">
 				<li><a href="example.html">示例</a></li>
 				<li><a href="slide.html">幻灯</a></li>
@@ -36,21 +47,42 @@
 				<li><a href="qrcode.html">二维码关注</a></li>
 				<li><a href="menu.html">菜单</a></li>
 				<li><a href="swiper-menu.html">可滑动菜单</a></li>
-				<li><a href="dialog.html">对话框</a></li>
+				<li><a href="modal.html">模态框</a></li>
+				<li><a href="lazyload.html">懒加载</a></li>
+			</ol>
+			<h4 class="text-bold">二、其他</h4>
+			<ol type="1">
+				<li><a href="example.html">示例</a></li>
+				<li><a href="slide.html">幻灯</a></li>
+				<li><a href="swiper-scroll.html">swiper上拉/下拉</a></li>
+				<li><a href="iscroll.html">iscroll上拉/下拉</a></li>
+				<li><a href="list.html">列表</a></li>
+				<li><a href="list-card.html">卡片列表</a></li>
+				<li><a href="form.html">表单</a></li>
+				<li><a href="err.html">错误页</a></li>
+				<li><a href="fonts.html">字体图标</a></li>
+				<li><a href="qrcode.html">二维码关注</a></li>
+				<li><a href="menu.html">菜单</a></li>
+				<li><a href="swiper-menu.html">可滑动菜单</a></li>
+				<li><a href="modal.html">模态框</a></li>
 				<li><a href="lazyload.html">懒加载</a></li>
 			</ol>
 		</div>
+        <div class="float-tool">
+        	<div id="top-tool">
+        		<a class="js-back-to-top" href="javascript: void(0);" title="回到顶部"></a>
+        	</div>
+        </div>
 
-		<script type="text/javascript" src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript">
-			if(!window.jQuery) {
-				document.write(unescape("%3Cscript src='js/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
-			}
-		</script>
+        <script src="plugins/zepto.min.js"></script>
+        <script src="plugins/back-to-top.js"></script>
 		<script type="text/javascript">
 		//<![CDATA[
 			$(function() {
-				
+	        	//返回顶部
+			    $('.js-back-to-top').on('click', function (){
+			        $('html,body').scrollTo({toT: 0});
+			    });
 			});
 		//]]>
 		</script>
